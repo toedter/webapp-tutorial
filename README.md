@@ -25,5 +25,5 @@ Requirements
 
 Getting Started
 ---------------
-* ./gradlew cleaN build (builds all the tutorial labs)
+* ./gradlew clean build (builds all the tutorial labs, runs all the tests)
 
