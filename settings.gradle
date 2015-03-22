@@ -1,0 +1,4 @@
+include 'lab1/initial'
+include 'lab1/complete'
+
+rootProject.name = 'webapp-tutorial'
