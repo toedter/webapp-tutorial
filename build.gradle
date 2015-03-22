@@ -7,6 +7,7 @@ buildscript {
     }
 }
 
+
 allprojects {
 
     apply plugin: 'idea'
