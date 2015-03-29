@@ -21,7 +21,7 @@ import org.springframework.web.client.RestTemplate;
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
 @IntegrationTest({"server.port=0"})
-public class HelloControllerITest {
+public class HelloControllerIntegrationTest {
 
     @Value("${local.server.port}")
     private int port;
@@ -36,7 +36,7 @@ public class HelloControllerITest {
 	}
 
 	@Test
-	public void getHello() throws Exception {
+	public void shouldGetGreeting() throws Exception {
 		ResponseEntity<String> response = restTemplate.getForEntity(baseURL.toString(), String.class);
 		assertThat(response.getBody(), equalTo(HelloController.LAB1_GREETINGS_FROM_SPRING_BOOT));
 	}
