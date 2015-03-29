@@ -1,0 +1,27 @@
+= WebApp Tutorial
+
+This is tutorial material for building web apps with Spring Boot, Spring Data Rest, AnguluarJS and TypeScript.
+
+== Used Technologies
+
+* Java 7 or 8
+* http://stateless.co/hal_specification.html[HAL] (Hypertext Application Language)
+* http://projects.spring.io/spring-boot/[Spring Boot] (+ Data, REST, HATEOAS)
+* http://www.typescriptlang.org/[TypeScript] for web client
+* http://angularjs.org/[AngularJS] for web client
+* https://github.com/angular/protractor[Protractor] for functional web client UI tests
+* http://junit.org/[JUnit] for Java unit and integration testing
+* https://code.google.com/p/mockito/[Mockito] for Mocking
+* http://www.gradle.org/[Gradle] as build system
+* https://www.docker.com[Docker] to create containers for the running apps
+
+== Requirements
+
+* Java 7 or 8 (JDK) installed
+* Node.js installed
+* Grunt CLI installed (npm install -g grunt-cli)
+* Bower and TSD (TypeScript Definition Manager) don't have to be installed, the build will invoke the grunt contribs for bower and tsd
+
+== Getting Started
+
+* ./gradlew clean build (builds all the tutorial labs, runs all the tests)
