@@ -1,0 +1,17 @@
+<!doctype html>
+<html ng-app>
+<head>
+    <script src="../../../bower_components/angular/angular.min.js"></script>
+</head>
+<body>
+<div ng-init="users = ['Kai','John', 'Jane']" >
+    <label>Search:</label>
+    <input type="text" ng-model="search" placeholder="Enter search here">
+    <hr>
+    <div ng-repeat="user in users  | filter:search">
+        {{user}}
+    </div>
+</div>
+</body>
+</html>
+
