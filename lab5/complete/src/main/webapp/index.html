@@ -1,0 +1,23 @@
+<!doctype html>
+<html ng-app="webapp">
+<head>
+    <script src="../../../bower_components/angular/angular.min.js"></script>
+    <script src="../ts/Application.js"></script>
+    <script src="../ts/SimpleUser.js"></script>
+    <script src="../ts/MainController.js"></script>
+</head>
+<body>
+<div>
+    <label>Search:</label>
+    <input type="text" ng-model="search" placeholder="Enter search here">
+    <hr>
+    <table ng-controller="tutorial.webapp.mainController">
+        <tr ng-repeat="user in users | filter:search">
+            <td style="text-align: left; width:30%">{{user.id}}</td>
+            <td style="text-align: left; width:30%">{{user.email}}</td>
+            <td style="text-align: left; width:30%">{{user.fullName}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
