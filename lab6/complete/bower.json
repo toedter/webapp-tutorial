@@ -1,0 +1,11 @@
+{
+    "name": "tutorial-web-client",
+    "version": "0.1.0",
+    "description": "tutorial web client - a tutorial lab",
+    "dependencies": {
+        "angular": "1.3.13",
+        "angular-mocks": "1.3.13",
+        "bootstrap": "3.3.4"
+    },
+    "devDependencies": {}
+}

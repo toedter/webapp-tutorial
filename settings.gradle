@@ -8,5 +8,6 @@ include 'lab4/initial'
 include 'lab4/complete'
 include 'lab5/initial'
 include 'lab5/complete'
+include 'lab6/complete'
 
 rootProject.name = 'webapp-tutorial'
