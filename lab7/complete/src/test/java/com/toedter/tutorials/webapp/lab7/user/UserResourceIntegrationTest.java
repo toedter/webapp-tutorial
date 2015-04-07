@@ -1,6 +1,6 @@
-package com.toedter.tutorials.webapp.lab2.user;
+package com.toedter.tutorials.webapp.lab7.user;
 
-import com.toedter.tutorials.webapp.lab2.Application;
+import com.toedter.tutorials.webapp.lab7.Application;
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +46,7 @@ public class UserResourceIntegrationTest {
 
     @Test
     public void shouldGetUsersLink() throws Exception {
-        MockHttpServletResponse response2 = mvc.perform(get("/")).
+        MockHttpServletResponse response = mvc.perform(get("/")).
                 andDo(MockMvcResultHandlers.print()).
                 andExpect(status().isOk()).
                 andExpect(content().contentType(MediaTypes.HAL_JSON)).
@@ -54,8 +54,8 @@ public class UserResourceIntegrationTest {
                 andReturn().
                 getResponse();
 
-        LinkDiscoverer discoverer = links.getLinkDiscovererFor(response2.getContentType());
-        Link link = discoverer.findLinkWithRel("users", response2.getContentAsString());
+        LinkDiscoverer discoverer = links.getLinkDiscovererFor(response.getContentType());
+        Link link = discoverer.findLinkWithRel("users", response.getContentAsString());
 
         mvc.perform(get(link.getHref())).
                 andDo(MockMvcResultHandlers.print()).
