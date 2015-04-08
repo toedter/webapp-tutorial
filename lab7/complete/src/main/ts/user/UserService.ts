@@ -1,5 +1,5 @@
 /// <reference path="../Application.ts" />
-/// <reference path="../../../typings/angularjs/angular-resource.d.ts" />
+/// <reference path="../../../../typings/angularjs/angular-resource.d.ts" />
 /// <reference path="User.ts" />
 
 module tutorial.webapp {
@@ -9,7 +9,7 @@ module tutorial.webapp {
 
         constructor(private apiResource:ng.resource.IResourceClass<ng.resource.IResource<any>>,
                     private $resource:ng.resource.IResourceService) {
-            console.log('ChatMessage service started')
+            console.log('user service started')
         }
 
         getAllUsers(callback:(users:tutorial.webapp.UserResource[]) => void) {
