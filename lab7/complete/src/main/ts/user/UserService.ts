@@ -3,7 +3,11 @@
 /// <reference path="User.ts" />
 
 module tutorial.webapp {
-    export class UserService {
+    export interface UserService {
+        getAllUsers(callback:(users:tutorial.webapp.User[]) => void);
+    }
+
+    export class HalUserService implements UserService {
         static $inject = ['tutorial.webapp.apiResource', '$resource'];
         private usersContract = 'users';
 
@@ -12,12 +16,12 @@ module tutorial.webapp {
             console.log('user service started')
         }
 
-        getAllUsers(callback:(users:tutorial.webapp.UserResource[]) => void) {
+        getAllUsers(callback:(users:tutorial.webapp.User[]) => void) {
             this.apiResource.get((api:any) => {
                 var usersResource:tutorial.webapp.UsersResource = this.getUsersResource(api);
                 if (usersResource) {
                     usersResource.get((result:any) => {
-                        var users:tutorial.webapp.UserResource[] = [];
+                        var users:tutorial.webapp.User[] = [];
                         if (result.hasOwnProperty("_embedded") && result._embedded.hasOwnProperty(this.usersContract)) {
                             users = result._embedded['users'];
                         }
@@ -34,12 +38,11 @@ module tutorial.webapp {
                 href = href.replace(/{.*}/g, '');
 
                 var usersResource:tutorial.webapp.UsersResource =
-                    <tutorial.webapp.UsersResource> this.$resource(href + '/:id', {id: '@id'}, {
-                    });
+                    <tutorial.webapp.UsersResource> this.$resource(href + '/:id', {id: '@id'}, {});
                 return usersResource;
             }
         }
     }
 }
 
-tutorial.webapp.services.service('tutorial.webapp.userService', tutorial.webapp.UserService);
+tutorial.webapp.services.service('tutorial.webapp.userService', tutorial.webapp.HalUserService);

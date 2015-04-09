@@ -1,3 +1,5 @@
+/// <reference path="../../../../typings/angularjs/angular-resource.d.ts" />
+
 module tutorial.webapp {
     export interface User {
         getId(): string;

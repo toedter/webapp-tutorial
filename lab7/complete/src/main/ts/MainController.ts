@@ -17,7 +17,6 @@ module tutorial.webapp {
         }
 
         private refreshUsers() {
-            console.log('refreshing users');
             this.userService.getAllUsers(
                 (users:tutorial.webapp.User[]) => {
                     this.$scope.users = users;
