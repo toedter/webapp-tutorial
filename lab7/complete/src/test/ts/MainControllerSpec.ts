@@ -2,11 +2,10 @@
 /// <reference path="../../../typings/angularjs/angular.d.ts" />
 /// <reference path="../../../typings/angularjs/angular-resource.d.ts" />
 /// <reference path="../../../typings/angularjs/angular-mocks.d.ts" />
+/// <reference path="../../main/ts/MainController.ts" />
 /// <reference path="../../main/ts/user/User.ts" />
 /// <reference path="../../main/ts/user/SimpleUser.ts" />
 /// <reference path="../../main/ts/user/UserService.ts" />
-/// <reference path="../../main/ts/MainController.ts" />
-/// <reference path="../../main/ts/Application.ts" />
 
 module tutorial.webapp {
     describe('Main Controller', () => {
@@ -23,9 +22,6 @@ module tutorial.webapp {
             var userServiceMock:UserService = {
                 getAllUsers(callback:(users:User[]) => void) {
                     var users:User[] = [];
-                    var testUser1:User =
-                        new SimpleUser("user1", "user1@test.com", "User 1");
-                    users.push(testUser1);
                     callback(users);
                 }
             }
@@ -34,7 +30,7 @@ module tutorial.webapp {
             expect(controller).toBeDefined();
             expect(scope).toBeDefined();
             expect(scope.users).toBeDefined();
-            expect(scope.users.length).toBe(1);
+            expect(scope.users.length).toBe(0);
         });
     })
 };

@@ -12,11 +12,13 @@ module.exports = function (grunt) {
             },
             jasmine: {
                 unit: {
-                    src: ['src/main/**/*.js'],
+                    // make sure Application.js is loaded before others
+                    src: ['src/main/**/Application.js', 'src/main/**/*.js'],
                     options: {
                         specs: 'src/test/**/*Spec.js',
                         vendor: [
                             'bower_components/angular/*min.js',
+                            'bower_components/angular-resource/*min.js',
                             'bower_components/angular-mocks/*.js'
                         ],
                         keepRunner: true

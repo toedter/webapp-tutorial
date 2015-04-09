@@ -1,5 +1,5 @@
-/// <reference path="Application.ts" />
 /// <reference path="../../../typings/angularjs/angular-resource.d.ts" />
+/// <reference path="Application.ts" />
 
 tutorial.webapp.factories.factory('tutorial.webapp.apiResource', ['$resource',
         ($resource:ng.resource.IResourceService):
