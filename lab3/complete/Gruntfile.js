@@ -3,11 +3,13 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
             pkg: grunt.file.readJSON('package.json'),
-            meta: {
-                package: grunt.file.readJSON('package.json'),
-                src: {
-                    main: 'src/main',
-                    test: 'src/test'
+            typescript: {
+                base: {
+                    src: ['src/main/**/*.ts', 'src/test/**/*.ts'],
+                    options: {
+                        target: 'es5',
+                        sourceMap: true
+                    }
                 }
             },
             jasmine: {
@@ -15,31 +17,7 @@ module.exports = function (grunt) {
                     src: ['src/main/**/*.js'],
                     options: {
                         specs: 'src/test/**/*Spec.js',
-                        vendor: ['bower_components/jquery/*min.js',
-                            'bower_components/angular/*min.js',
-                            'bower_components/angular-resource/*min.js',
-                            'bower_components/angular-mocks/*.js',
-                            'bower_components/bootstrap/*min.js',
-                            'bower_components/atmosphere/*min.js'],
                         keepRunner: true
-                    }
-                }
-            },
-            typescript: {
-                base: {
-                    src: ['src/main/**/*.ts', 'src/test/**/*.ts', 'src/integTest/**/*.ts'],
-                    options: {
-                        target: 'es5',
-                        sourceMap: true
-                    }
-                },
-                dist: {
-                    src: ['src/main/ts/**/*.ts'],
-                    dest: 'dist/js/webapp-tutorial.js',
-                    options: {
-                        module: 'commonjs',
-                        target: 'es5',
-                        declaration: true
                     }
                 }
             }
@@ -49,5 +27,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
 
-    grunt.registerTask('default', ['typescript:base', 'jasmine']);
+    grunt.registerTask('default', ['typescript', 'jasmine']);
  }
