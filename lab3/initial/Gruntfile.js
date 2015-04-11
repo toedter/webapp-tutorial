@@ -42,40 +42,12 @@ module.exports = function (grunt) {
                         declaration: true
                     }
                 }
-            },
-            tsd: {
-                refresh: {
-                    options: {
-                        // execute a command
-                        command: 'reinstall',
-
-                        //optional: always get from HEAD
-                        latest: true,
-
-                        // specify config file
-                        config: 'tsd.json',
-
-                        // experimental: options to pass to tsd.API
-                        opts: {
-                            // props from tsd.Options
-                        }
-                    }
-                }
-            },
-            bower: {
-                install: {
-                    options: {
-                        targetDir: './bower_components'
-                    }
-                }
             }
         }
     )
 
     grunt.loadNpmTasks('grunt-typescript');
     grunt.loadNpmTasks('grunt-contrib-jasmine');
-    grunt.loadNpmTasks('grunt-tsd');
-    grunt.loadNpmTasks('grunt-bower-task');
 
     grunt.registerTask('default', ['typescript:base', 'jasmine']);
  }
