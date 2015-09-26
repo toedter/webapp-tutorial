@@ -16,13 +16,14 @@ module.exports = function (grunt) {
                     src: ['src/main/**/Application.js', 'src/main/**/*.js'],
                     options: {
                         specs: 'src/test/**/*Spec.js',
+                        // template: require('grunt-template-jasmine-requirejs'),
                         vendor: [
                             'bower_components/angular/*min.js',
-                            'bower_components/angular-resource/*min.js',
-                            'bower_components/angular-mocks/*.js'
+                            'bower_components/angular-mocks/angular-mocks.js',
+                            'bower_components/angular-resource/*min.js'
                         ],
                         keepRunner: true
-                    }
+                     }
                 }
             },
             typescript: {
