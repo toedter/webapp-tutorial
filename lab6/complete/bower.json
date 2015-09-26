@@ -3,8 +3,8 @@
     "version": "0.1.0",
     "description": "tutorial web client - a tutorial lab",
     "dependencies": {
-        "angular": "1.4.3",
-        "angular-mocks": "1.4.3",
+        "angular": "1.4.6",
+        "angular-mocks": "1.4.6",
         "bootstrap": "3.3.5"
     },
     "devDependencies": {}

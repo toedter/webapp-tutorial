@@ -19,7 +19,7 @@ module.exports = function (grunt) {
                         vendor: [
                             'bower_components/angular/*min.js',
                             'bower_components/angular-resource/*min.js',
-                            'bower_components/angular-mocks/*.js'
+                            'bower_components/angular-mocks/angular-mocks.js'
                         ],
                         keepRunner: true
                     }
