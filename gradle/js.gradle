@@ -1,0 +1,53 @@
+import com.toedter.tutorials.BowerTask
+import com.toedter.tutorials.GruntTask
+import com.toedter.tutorials.NpmTask
+import com.toedter.tutorials.TsdTask
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+}
+
+task tsdInstall(type: TsdTask) {
+    group = "build"
+    description = "installs all TypeScript definitions."
+    tsdArgs = "reinstall"
+
+    inputs.dir "typings"
+    inputs.file file("tsd.json")
+}
+
+task npmInstall(type: NpmTask) {
+    group = "build"
+    description = "installs all node modules."
+    npmArgs = "install"
+
+    inputs.dir "node_modules"
+    inputs.file file("package.json")
+}
+
+task bowerInstall(type: BowerTask) {
+    group = "build"
+    description = "installs all bower modules."
+    bowerArgs = "install"
+
+    inputs.dir "bower_components"
+    inputs.file file("bower.json")
+}
+
+task gruntTest(type: GruntTask) {
+    group = "verification"
+    description = "Runs the Jasmine unit tests."
+    gruntArgs = "test"
+
+    inputs.dir "src"
+    inputs.file file("Gruntfile.js")
+}
+
+task prepareJS << {}
+
+bowerInstall.dependsOn npmInstall
+tsdInstall.dependsOn npmInstall
+prepareJS.dependsOn bowerInstall, tsdInstall
+

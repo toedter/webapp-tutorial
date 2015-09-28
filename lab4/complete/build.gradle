@@ -1,0 +1,15 @@
+import com.toedter.tutorials.BowerTask
+
+task bowerInstall(type: BowerTask) {
+    group = "build"
+    description = "installs all bower modules."
+    bowerArgs = "install"
+
+    inputs.dir "bower_components"
+    inputs.file file("bower.json")
+}
+
+task prepareJS << {}
+
+prepareJS.dependsOn bowerInstall
+
