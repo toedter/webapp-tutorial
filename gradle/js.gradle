@@ -46,8 +46,6 @@ task gruntTest(type: GruntTask) {
 }
 
 task prepareJS << {}
+task test << {}
 
-bowerInstall.dependsOn npmInstall
-tsdInstall.dependsOn npmInstall
-prepareJS.dependsOn bowerInstall, tsdInstall
 

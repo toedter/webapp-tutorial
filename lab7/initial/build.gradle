@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply from: "$rootDir/gradle/js.gradle"
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
@@ -12,3 +13,5 @@ dependencies {
 
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
+
+prepareJS.dependsOn npmInstall, bowerInstall, tsdInstall
