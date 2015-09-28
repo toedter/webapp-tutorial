@@ -46,6 +46,5 @@ task gruntTest(type: GruntTask) {
 }
 
 task prepareJS << {}
-task test << {}
 
 
