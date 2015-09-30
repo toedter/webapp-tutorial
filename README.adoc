@@ -24,4 +24,5 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 
 == Getting Started
 
+* ./gradlew prepareJs (invokes npm install, bower install, tsd reinstall on all JavaScript projects)
 * ./gradlew clean build (builds all the tutorial labs (Java parts), runs all the Java tests)
