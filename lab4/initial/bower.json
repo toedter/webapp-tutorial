@@ -3,7 +3,7 @@
     "version": "0.1.0",
     "description": "tutorial web client - a tutorial lab",
     "dependencies": {
-        "angular": "1.4.6"
+        "angular": "1.4.7"
     },
     "devDependencies": {}
 }
