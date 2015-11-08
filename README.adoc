@@ -24,7 +24,10 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 
 In the vagrant directory you find a Vagrantfile to create a (German) development environment.
 
-* Log in as vagrant/vagrant and then invoke: startx
+* Install Vagrant and VirtualBox
+* Invoke "vagrant up" in a terminal
+* Wait for 20 minutes letting Vagrant create the whole virtual machine
+* In the VM, log in as vagrant/vagrant and then invoke: startx
 * The latest Ubuntu with a simple desktop will start up
 * You find this project at /home/vagrant/webapp-tutorial
 * All Gradle and JavaScript dependencies are already in the VM
