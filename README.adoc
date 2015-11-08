@@ -22,7 +22,18 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 ** Bower installed (npm install -g bower)
 ** TSD installed (npm install -g tsd)
 
+In the vagrant directory you find a Vagrantfile to create a (German) development environment.
+
+* Log in as vagrant/vagrant and then invoke: startx
+* The latest Ubuntu with a simple desktop will start up
+* You find this project at /home/vagrant/webapp-tutorial
+* All Gradle and JavaScript dependencies are already in the VM
+* You find an IntelliJ IDEA trial under /opt
+* Before starting IntelliJ you have to configure the Java 8 JDK
+* After starting IntelliJ you have to install the Lombok plugin manually.
+
 == Getting Started
 
+When you want to run the tutorial locally, prepare all the labs:
 * ./gradlew prepareJs (invokes npm install, bower install, tsd reinstall on all JavaScript projects)
 * ./gradlew clean build (builds all the tutorial labs (Java parts), runs all the Java tests)
