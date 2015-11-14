@@ -5,7 +5,13 @@ $script = <<SCRIPT
 # switch Ubuntu download mirror to German server
 sudo sed -i 's,http://us.archive.ubuntu.com/ubuntu/,http://ftp.fau.de/ubuntu/,' /etc/apt/sources.list
 sudo sed -i 's,http://security.ubuntu.com/ubuntu,http://ftp.fau.de/ubuntu,' /etc/apt/sources.list
-sudo apt-get update -y
+
+
+# add repos and update
+sudo add-apt-repository -y ppa:webupd8team/java
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo add-apt-repository ppa:xubuntu-dev/xfce-4.12
+sudo apt-get -y update
 
 # switch to German keyboard layout
 sudo sed -i 's/"us"/"de"/g' /etc/default/keyboard
@@ -17,16 +23,11 @@ echo "Europe/Berlin" | sudo tee /etc/timezone
 sudo dpkg-reconfigure -f noninteractive tzdata
 
 # install java
-sudo add-apt-repository -y ppa:webupd8team/java
-sudo apt-get update
-sudo apt-get -y upgrade
 echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections 
 echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
 sudo apt-get -y install oracle-java8-installer
 
 # install node & js tools
-curl -sL https://deb.nodesource.com/setup | sudo bash -
-sudo apt-get -y update
 sudo apt-get -y install nodejs
 sudo npm install -g grunt-cli
 sudo npm install -g bower
@@ -41,6 +42,7 @@ cd webapp-tutorial
 ./gradlew prepareJS
 ./gradlew build
 
+# install xfce
 sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 sudo apt-get install gnome-icon-theme-full tango-icon-theme
 sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
@@ -49,9 +51,10 @@ sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 sudo apt-get install -y chromium-browser
 
 # install IntelliJ IDEA  
-sudo wget -O /opt/ideaIU-15.0.tar.gz http://download.jetbrains.com/idea/ideaIU-15.0.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-15.0.tar.gz
-sudo rm ideaIU-15.0.tar.gz
+sudo wget -O /opt/ideaIU-15.0.1.tar.gz http://download.jetbrains.com/idea/ideaIU-15.0.1.tar.gz
+cd /opt/ && sudo tar -zxvf ideaIU-15.0.1.tar.gz
+sudo rm ideaIU-15.0.1.tar.gz
+sudo chown -R vagrant:vagrant .
 
 SCRIPT
 
@@ -61,8 +64,9 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
 
   config.vm.provider "virtualbox" do |vb|
+     vb.name = "webapp-tutorial"
      vb.gui = true  
-     vb.memory = "8192"
+     vb.memory = "4096"
   end
   
   config.vm.provision "shell", inline: $script, privileged: false
