@@ -56,8 +56,10 @@ public class UserResourceIntegrationTest {
 
         LinkDiscoverer discoverer = links.getLinkDiscovererFor(response.getContentType());
         Link link = discoverer.findLinkWithRel("users", response.getContentAsString());
+        String href = link.getHref();
+        String hrefWithoutTemplateParameters = href.substring(0, href.indexOf("{"));
 
-        mvc.perform(get(link.getHref())).
+        mvc.perform(get(hrefWithoutTemplateParameters)).
                 andDo(MockMvcResultHandlers.print()).
                 andExpect(content().contentTypeCompatibleWith(MediaTypes.HAL_JSON)).
                 andExpect(jsonPath("_embedded.users", CoreMatchers.notNullValue()));
