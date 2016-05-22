@@ -9,7 +9,7 @@ export class UsersService {
     }
 
     public getUsers(): Observable<any> {
-        let uri: string = '/api/users';
+        let uri: string = '/users';
 
         if (!document.location.hostname || document.location.hostname === 'localhost') {
            uri = 'http://localhost:8080' + uri;
@@ -17,7 +17,7 @@ export class UsersService {
 
         let observable: Observable<any> =
             this.http.get(uri)
-            .map((response: Response) => response.json()._embedded['chatty:users']);
+            .map((response: Response) => response.json()._embedded['users']);
 
         return observable;
     }
