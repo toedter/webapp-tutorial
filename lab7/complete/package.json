@@ -1,5 +1,5 @@
 {
-  "name": "webapp-tutorial",
+  "name": "webapp-tutorial-angular2-client",
   "version": "1.0.0",
   "description": "The web part of the 'Cool Webapps' Tutorial",
   "scripts": {
@@ -40,15 +40,12 @@
     "rxjs": "5.0.0-beta.6",
     "zone.js": "~0.6.12"
   },
-  "keywords": [
-    "Angular2"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/toedter/webapp-tutorial.git"
   },
   "bugs": {
-    "url": "https://github.com/toedter/webapp-tutorial.git/issues"
+    "url": "https://github.com/toedter/webapp-tutorial/issues"
   },
   "homepage": "https://github.com/toedter/webapp-tutorial.git#readme"
 }
