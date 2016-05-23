@@ -16,7 +16,7 @@ module tutorial.webapp {
             var testUser3:User = new SimpleUser("jane", "jane@doe.com", "Jane Doe");
             users.push(testUser3)
             $scope.users = users;
-        }
+         }
     }
 }
 

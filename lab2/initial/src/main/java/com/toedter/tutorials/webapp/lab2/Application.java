@@ -1,5 +1,6 @@
 package com.toedter.tutorials.webapp.lab2;
 
+import com.toedter.tutorials.webapp.lab2.user.UserTestDataLoader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -8,8 +9,8 @@ import org.springframework.context.annotation.Bean;
 public class Application {
 
     @Bean(initMethod = "loadData")
-    TestDataLoader RepositoryTestData() {
-        return new TestDataLoader();
+    UserTestDataLoader RepositoryTestData() {
+        return new UserTestDataLoader();
     }
 
     public static void main(String[] args) {
