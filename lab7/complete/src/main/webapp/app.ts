@@ -1,3 +1,5 @@
+///<reference path="../../../../../typings/browser.d.ts"/>
+
 import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 import {bootstrap} from '@angular/platform-browser-dynamic';
 import {provide, enableProdMode} from '@angular/core';

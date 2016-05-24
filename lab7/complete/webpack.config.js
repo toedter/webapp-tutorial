@@ -1,7 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
 
-
 // Webpack Config
 var webpackConfig = {
     entry: {
@@ -45,30 +44,30 @@ var defaultConfig = {
                 loader: 'source-map-loader',
                 exclude: [
                     // these packages have problems with their sourcemaps
-                    path.join(__dirname, 'node_modules', 'rxjs'),
-                    path.join(__dirname, 'node_modules', '@angular2-material'),
-                    path.join(__dirname, 'node_modules', '@angular'),
+                    path.join(__dirname, '../../node_modules', 'rxjs'),
+                    path.join(__dirname, '../../node_modules', '@angular2-material'),
+                    path.join(__dirname, '../../node_modules', '@angular'),
                 ]
             }
         ],
         noParse: [
-            path.join(__dirname, 'node_modules', 'zone.js', 'dist'),
-            path.join(__dirname, 'node_modules', 'angular2', 'bundles')
+            path.join(__dirname, '../../node_modules', 'zone.js', 'dist'),
+            path.join(__dirname, '../../node_modules', 'angular2', 'bundles')
         ]
     },
 
     resolve: {
-        root: [path.join(__dirname, 'src')],
+        root: [path.join(__dirname, 'src'), path.resolve('../../node_modules')],
         extensions: ['', '.ts', '.js'],
         alias: {
-            'angular2/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),
-            '@angular/testing': path.join(__dirname, 'node_modules', '@angular', 'core', 'testing.js'),
-            'angular2/core': path.join(__dirname, 'node_modules', '@angular', 'core', 'index.js'),
-            'angular2/platform/browser': path.join(__dirname, 'node_modules', '@angular', 'platform-browser', 'index.js'),
-            'angular2/testing': path.join(__dirname, 'node_modules', '@angular', 'testing', 'index.js'),
-            'angular2/router': path.join(__dirname, 'node_modules', '@angular', 'router-deprecated', 'index.js'),
-            'angular2/http': path.join(__dirname, 'node_modules', '@angular', 'http', 'index.js'),
-            'angular2/http/testing': path.join(__dirname, 'node_modules', '@angular', 'http', 'testing.js')
+            'angular2/testing': path.join(__dirname, '../../node_modules', '@angular', 'core', 'testing.js'),
+            '@angular/testing': path.join(__dirname, '../../node_modules', '@angular', 'core', 'testing.js'),
+            'angular2/core': path.join(__dirname, '../../node_modules', '@angular', 'core', 'index.js'),
+            'angular2/platform/browser': path.join(__dirname, '../../node_modules', '@angular', 'platform-browser', 'index.js'),
+            'angular2/testing': path.join(__dirname, '../../node_modules', '@angular', 'testing', 'index.js'),
+            'angular2/router': path.join(__dirname, '../../node_modules', '@angular', 'router-deprecated', 'index.js'),
+            'angular2/http': path.join(__dirname, '../../node_modules', '@angular', 'http', 'index.js'),
+            'angular2/http/testing': path.join(__dirname, '../../node_modules', '@angular', 'http', 'testing.js')
         },
     },
 
