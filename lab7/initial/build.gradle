@@ -1,6 +1,36 @@
 apply plugin: 'java'
 apply plugin: 'spring-boot'
-apply from: "$rootDir/gradle/js.gradle"
+apply plugin: 'com.moowork.node'
+
+node {
+    download = false
+    workDir = file("${rootProject.buildDir}/node")
+    nodeModulesDir = file("${project.projectDir}")
+}
+
+clean{
+    delete "dist"
+}
+
+task copyWebApp(type: Copy) {
+    from('dist') {
+        include '**/*.js'
+    }
+    from('src/main/webapp') {
+        include '**/*.css'
+        include '**/*.html'
+    }
+    into 'build/resources/main/static'
+
+    includeEmptyDirs = false
+}
+
+npm_install.inputs.dir new File(projectDir, "package.json")
+npm_install.outputs.dir new File(projectDir, "node_modules")
+
+npm_run_build.dependsOn npm_install
+copyWebApp.dependsOn npm_run_build
+build.dependsOn copyWebApp
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
@@ -14,4 +44,3 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
-prepareJS.dependsOn npmInstall, bowerInstall, tsdInstall

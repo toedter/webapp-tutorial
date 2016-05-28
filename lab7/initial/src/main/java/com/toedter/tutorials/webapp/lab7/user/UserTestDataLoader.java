@@ -16,15 +16,15 @@ public class UserTestDataLoader {
         logger.info("init test data");
         User toedter_k = new User("toedter_k", "Kai Toedter", "kai@toedter.com");
         userRepository.save(toedter_k);
-        User toedter_r = new User("toedter_r", "Renate Toedter", "renate@toedter.com");
-        userRepository.save(toedter_r);
-        User toedter_t = new User("toedter_t", "Timo Toedter", "timo@toedter.com");
-        userRepository.save(toedter_t);
-        User toedter_n = new User("toedter_n", "Nina Toedter", "nina@toedter.com");
-        userRepository.save(toedter_n);
+
         User doe_jo = new User("doe_jo", "John Doe", "john@doe.com");
         userRepository.save(doe_jo);
         User doe_ja = new User("doe_ja", "Jane Doe", "jane@doe.com");
         userRepository.save(doe_ja);
+
+        User clark_c = new User("clark_c", "Cassandra Clark", "cassandra.clark@kent.com");
+        userRepository.save(clark_c);
+        User woods_p = new User("woods_p", "Pedro Woods", "pedro.woods@forest.com");
+        userRepository.save(woods_p);
     }
 }

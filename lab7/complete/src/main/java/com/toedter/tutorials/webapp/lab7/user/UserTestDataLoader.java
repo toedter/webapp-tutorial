@@ -24,7 +24,7 @@ public class UserTestDataLoader {
 
         User clark_c = new User("clark_c", "Cassandra Clark", "cassandra.clark@kent.com");
         userRepository.save(clark_c);
-        User woods_p = new User("woods_p", "Pedro Woods", "pedro_woods@forest.com");
+        User woods_p = new User("woods_p", "Pedro Woods", "pedro.woods@forest.com");
         userRepository.save(woods_p);
     }
 }
