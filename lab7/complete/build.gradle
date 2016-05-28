@@ -1,36 +1,36 @@
-plugins {
-    id "com.moowork.node" version "0.12"
-    id "com.moowork.gulp" version "0.12"
-}
-
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'com.moowork.node'
 
 node {
-    version = '4.4.1'
-    npmVersion = '3.8.3'
-    download = true
+    download = false
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
-}
-
-gulp {
-    colors = true
-    bufferOutput = true
 }
 
 clean{
     delete "dist"
 }
 
+task copyWebApp(type: Copy) {
+    from('dist') {
+        include '**/*.js'
+    }
+    from('src/main/webapp') {
+        include '**/*.css'
+        include '**/*.html'
+    }
+    into 'build/resources/main/static'
+
+    includeEmptyDirs = false
+}
+
 npm_install.inputs.dir new File(projectDir, "package.json")
 npm_install.outputs.dir new File(projectDir, "node_modules")
 
-gulp_build.inputs.dir new File(projectDir, "src/main/webapp")
-gulp_build.outputs.dir new File(projectDir, "dist")
-
-gulp_build.dependsOn npm_install
-build.dependsOn gulp_build
+npm_run_build.dependsOn npm_install
+copyWebApp.dependsOn npm_run_build
+build.dependsOn copyWebApp
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")

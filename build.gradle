@@ -7,6 +7,20 @@ buildscript {
     }
 }
 
+plugins {
+    id "com.moowork.node" version "0.12"
+}
+
+node {
+    version = '4.4.5'
+    npmVersion = '3.8.7'
+    download = true
+    workDir = file("${rootProject.buildDir}/node")
+    nodeModulesDir = file("${project.projectDir}")
+}
+
+task build {}
+build.dependsOn npm_install
 
 allprojects {
 
@@ -25,6 +39,7 @@ allprojects {
         module {
             excludeDirs += file('node_modules')
             excludeDirs += file('bower_components')
+            excludeDirs += file('dist')
         }
     }
 }
