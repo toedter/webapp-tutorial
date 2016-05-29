@@ -3,9 +3,6 @@ import {User} from './user';
 
 @Injectable()
 export class UsersService {
-    constructor(private http: Http) {
-    }
-
     public getUsers(): User[] {
         return [
             new User('toedter_k', 'Kai Toedter', 'kai@toedter.com'),
