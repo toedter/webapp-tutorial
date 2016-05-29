@@ -9,13 +9,14 @@ import {UsersService} from './users-service';
     viewBindings: [UsersService],
 })
 export class UsersComponent {
-    private users: User[];
+    private users:User[];
 
-    constructor(private usersService: UsersService) {
+    constructor(private usersService:UsersService) {
     }
 
     ngOnInit() {
         this.usersService.getUsers()
-            .subscribe((users: User[]) => this.users = users);
+            .subscribe((users:User[]) => this.users = users,
+                error => console.error('UsersComponent: cannot get users from UserService'));
     }
 }
