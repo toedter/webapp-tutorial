@@ -10,7 +10,6 @@ export class UsersService {
     }
 
     public getUsers(): User[] {
-
         return [
             new User('toedter_k', 'Kai Toedter', 'kai@toedter.com'),
             new User('doe_jo', 'John Doe', 'john@doe.com'),
