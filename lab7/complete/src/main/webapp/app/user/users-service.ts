@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Observable} from 'rxjs/Rx';
+import 'rxjs/add/operator/catch';
+import {Observable} from 'rxjs/Observable';
 import {User} from './user';
 
 @Injectable()
@@ -13,7 +14,7 @@ export class UsersService {
         let uri:string = '/api/users';
 
         if (!document.location.hostname || document.location.hostname === 'localhost') {
-            uri = 'http://localhost:8080/api' + uri;
+            uri = 'http://localhost:8080' + uri;
         }
 
         let observable:Observable<User[]> =

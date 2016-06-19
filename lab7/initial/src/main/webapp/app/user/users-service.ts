@@ -12,7 +12,7 @@ export class UsersService {
         let uri: string = '/api/users';
 
         if (!document.location.hostname || document.location.hostname === 'localhost') {
-           uri = 'http://localhost:8080/api' + uri;
+           uri = 'http://localhost:8080' + uri;
         }
 
         let observable: Observable<any> =
