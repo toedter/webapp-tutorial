@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {Http} from '@angular/http';
 
-
 @Component({
   selector: 'about',
   templateUrl: 'app/about/about.html',
@@ -13,6 +12,5 @@ import {Http} from '@angular/http';
 export class About {
 
   constructor(http: Http) {
-
   }
 }

@@ -1,6 +1,14 @@
 var webpack = require('webpack');
 var path = require('path');
 
+/**
+ * Env
+ * Get npm lifecycle event to identify the environment
+ */
+var ENV = process.env.npm_lifecycle_event;
+var isTest = ENV === 'test' || ENV === 'test-watch';
+var isProd = ENV === 'build';
+
 // Webpack Config
 var webpackConfig = {
     entry: {
@@ -13,10 +21,7 @@ var webpackConfig = {
         path: './dist',
     },
 
-    plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(true),
-        new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendor', 'polyfills'], minChunks: Infinity }),
-    ],
+    plugins: [],
 
     module: {
         loaders: [
@@ -28,9 +33,15 @@ var webpackConfig = {
 
         ]
     }
-
 };
 
+// if we run the CommonsChunkPlugin in karma test, we get a ReferenceError: Can't find variable: webpackJsonp
+if (!isTest) {
+  webpackConfig.plugins.push(
+        new webpack.optimize.OccurenceOrderPlugin(true),
+        new webpack.optimize.CommonsChunkPlugin({ name: ['app', 'vendor', 'polyfills'], minChunks: Infinity })
+  )
+}
 
 // Our Webpack Defaults
 var defaultConfig = {
@@ -63,7 +74,7 @@ var defaultConfig = {
     },
 
     resolve: {
-        root: [ path.join(__dirname, 'src') ],
+        root: [ path.join(__dirname, 'src/main/webapp') ],
         extensions: ['', '.ts', '.js', '.json']
     },
 
