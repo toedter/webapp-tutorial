@@ -1,7 +1,7 @@
 import { provideRouter, RouterConfig } from '@angular/router';
 
-import {UsersComponent} from "./user/users.component";
-import {About} from "./about/about.component";
+import {UsersComponent} from './user/users.component';
+import {About} from './about/about.component';
 
 const routes: RouterConfig = [
     { path: '', redirectTo: 'users', terminal: true },
