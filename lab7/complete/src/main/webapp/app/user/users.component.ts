@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {User} from './user';
-import {UsersService} from './users-service';
+import {UsersService} from './users.service';
 
 
 @Component({
     selector: 'chat-messages',
-    templateUrl: 'app/user/users-component.html',
+    templateUrl: 'app/user/users.component.html',
     viewProviders: [UsersService],
 })
 export class UsersComponent {

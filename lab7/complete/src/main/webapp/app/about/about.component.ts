@@ -3,8 +3,8 @@ import {Http} from '@angular/http';
 
 @Component({
   selector: 'about',
-  templateUrl: 'app/about/about.html',
-  styleUrls: ['app/about/about.css'],
+  templateUrl: 'app/about/about.component.html',
+  styleUrls: ['app/about/about.component.css'],
   providers: [],
   directives: [],
   pipes: []

@@ -6,7 +6,7 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
     providers: [],
     pipes: [],
     directives: [ROUTER_DIRECTIVES],
-    templateUrl: 'app/web-app.html',
+    templateUrl: 'app/app.component.html',
 })
 export class WebApp {
 }

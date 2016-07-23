@@ -5,8 +5,8 @@ import {bootstrap} from '@angular/platform-browser-dynamic';
 import {HTTP_PROVIDERS} from '@angular/http';
 // import {enableProdMode} from '@angular/core';
 
-import {APP_ROUTER_PROVIDERS} from './app/web-app-routes';
-import {WebApp} from './app/web-app';
+import {APP_ROUTER_PROVIDERS} from './app/app.routes';
+import {WebApp} from './app/app.component';
 
 // enableProdMode()
 
