@@ -1,3 +1,0 @@
-apply from: "$rootDir/gradle/js.gradle"
-
-prepareJS.dependsOn bowerInstall

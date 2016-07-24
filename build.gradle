@@ -12,15 +12,11 @@ plugins {
 }
 
 node {
-    version = '4.4.5'
-    npmVersion = '3.8.7'
+    version = '6.3.0'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
 }
-
-task build {}
-build.dependsOn npm_install
 
 allprojects {
 
@@ -28,11 +24,17 @@ allprojects {
     apply plugin: 'eclipse'
 
     task wrapper(type: Wrapper) {
-        gradleVersion = '2.13'
+        gradleVersion = '2.14'
     }
 
     repositories {
         mavenCentral()
+    }
+
+    task cleanJS {
+        delete 'node_modules'
+        delete 'typings'
+        delete 'bower_components'
     }
 
     idea {
