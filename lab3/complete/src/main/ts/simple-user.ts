@@ -1,4 +1,4 @@
-///<reference path="user.ts"/>
+///<reference path="userx.ts"/>
 
 namespace tutorial.webapp {
     export class SimpleUser implements User {

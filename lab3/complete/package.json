@@ -4,6 +4,8 @@
   "version": "1.0.0",
   "description": "tutorial web client - a tutorial lab",
   "scripts": {
+    "typings-install": "./node_modules/.bin/typings install",
+    "postinstall": "npm run typings-install",
     "build": "./node_modules/.bin/tsc",
     "test": "./node_modules/.bin/karma start"
   },
@@ -19,6 +21,7 @@
     "karma": "^1.1.1",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.0",
-    "typescript": "^1.8.10"
+    "typescript": "^1.8.10",
+    "typings": "~1.0.3"
   }
 }
