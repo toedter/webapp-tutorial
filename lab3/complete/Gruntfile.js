@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                 unit: {
                     src: ['src/main/**/*.js'],
                     options: {
-                        specs: 'src/test/**/*Spec.js',
+                        specs: 'src/test/**/*.spec.js',
                         keepRunner: true
                     }
                 }

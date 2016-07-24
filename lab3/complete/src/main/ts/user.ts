@@ -1,4 +1,4 @@
-module tutorial.webapp {
+namespace tutorial.webapp {
     export interface User {
         getId(): string;
         getEmail(): string;

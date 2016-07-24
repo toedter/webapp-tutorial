@@ -1,9 +1,9 @@
-///<reference path="User.ts"/>
+///<reference path="user.ts"/>
 
-module tutorial.webapp {
+namespace tutorial.webapp {
     export class SimpleUser implements User {
 
-        constructor(private id:string, private email:string, private fullName:string) {
+        constructor(private id: string, private email: string, private fullName: string) {
         }
 
         getId(): string {
