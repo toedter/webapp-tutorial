@@ -1,4 +1,4 @@
-///<reference path="userx.ts"/>
+///<reference path="user.ts"/>
 
 namespace tutorial.webapp {
 }
