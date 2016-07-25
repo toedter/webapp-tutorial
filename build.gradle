@@ -18,6 +18,14 @@ node {
     nodeModulesDir = file("${project.projectDir}")
 }
 
+npm_install.inputs.dir new File(projectDir, "package.json")
+npm_install.outputs.dir new File(projectDir, "node_modules")
+
+npm_run_build.dependsOn npm_install
+
+task build {}
+build.dependsOn npm_run_build
+
 allprojects {
 
     apply plugin: 'idea'
