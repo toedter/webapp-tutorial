@@ -12,6 +12,7 @@ import org.springframework.hateoas.Link;
 import org.springframework.hateoas.LinkDiscoverer;
 import org.springframework.hateoas.LinkDiscoverers;
 import org.springframework.hateoas.MediaTypes;
+import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -46,10 +47,10 @@ public class UserResourceIntegrationTest {
 
     @Test
     public void shouldGetUsersLink() throws Exception {
-        MockHttpServletResponse response2 = mvc.perform(get("/api")).
+        MockHttpServletResponse response2 = mvc.perform(get("/api").accept(MediaTypes.HAL_JSON)).
                 andDo(MockMvcResultHandlers.print()).
                 andExpect(status().isOk()).
-                andExpect(content().contentType(MediaTypes.HAL_JSON)).
+                andExpect(content().contentType("application/hal+json;charset=UTF-8")).
                 andExpect(jsonPath("_links.users.href", CoreMatchers.notNullValue())).
                 andReturn().
                 getResponse();
