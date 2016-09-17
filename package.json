@@ -5,10 +5,7 @@
   "scripts": {
     "typings-install": "typings install",
     "postinstall": "npm run typings-install",
-    "build": "webpack --inline --colors --progress --display-error-details --display-cached",
-    "watch": "npm run build -- --watch",
-    "server": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 3000  --content-base src/main/webapp",
-    "start": "npm run server"
+    "build": "echo npm: nothing to build on top level"
   },
   "contributors": [
     "Kai Toedter <kai@toedter.com>"

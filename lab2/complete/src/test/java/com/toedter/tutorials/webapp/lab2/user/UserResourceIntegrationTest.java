@@ -49,7 +49,7 @@ public class UserResourceIntegrationTest {
         MockHttpServletResponse response2 = mvc.perform(get("/")).
                 andDo(MockMvcResultHandlers.print()).
                 andExpect(status().isOk()).
-                andExpect(content().contentType(MediaTypes.HAL_JSON)).
+                andExpect(content().contentType("application/hal+json;charset=UTF-8")).
                 andExpect(jsonPath("_links.users.href", CoreMatchers.notNullValue())).
                 andReturn().
                 getResponse();
