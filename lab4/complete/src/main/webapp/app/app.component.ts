@@ -2,13 +2,12 @@ import {Component} from '@angular/core';
 
 @Component({
     selector: 'web-app',
-    templateUrl: 'app/web-app.html',
+    templateUrl: 'app/app.component.html',
 })
-export class WebApp {
+export class AppComponent {
     private hello: string;
 
     ngOnInit() {
-        this.hello = "Hello, Angular2!";
+        this.hello = 'Hello, Angular2!';
     }
-
 }

@@ -1,0 +1,20 @@
+apply plugin: 'com.moowork.node'
+
+node {
+    download = false
+    workDir = file("${rootProject.buildDir}/node")
+    nodeModulesDir = file("${project.projectDir}")
+}
+
+task clean {
+    delete "dist"
+}
+
+npm_install.inputs.dir new File(projectDir, "package.json")
+npm_install.outputs.dir new File(projectDir, "node_modules")
+
+npm_run_build.dependsOn npm_install
+
+task build {}
+build.dependsOn npm_run_build
+

@@ -10,8 +10,8 @@
     "moduleResolution": "node"
   },
   "exclude": [
-    "typings/main.d.ts",
-    "typings/main",
+    "typings/index.d.ts",
+    "typings/globals",
     "node_modules"
   ],
   "compileOnSave": false,

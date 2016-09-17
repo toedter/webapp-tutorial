@@ -1,9 +1,5 @@
 ///<reference path='../../../../../../../typings/index.d.ts'/>
 
-import {
-    it
-} from '@angular/core/testing';
-
 import {User} from '../../../../main/webapp/app/user/user';
 
 describe('User', () => {
