@@ -4,23 +4,30 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 
 == Used Technologies
 
-* Java 7 or 8
-* http://stateless.co/hal_specification.html[HAL] (Hypertext Application Language)
+* http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Java 8] for the REST services
+* https://www.typescriptlang.org/[Typescript] for the web client
+* http://stateless.co/hal_specification.html[HAL] (Hypertext Application Language) fpr hypermedia
 * http://projects.spring.io/spring-boot/[Spring Boot] (+ Data, REST, HATEOAS)
-* http://www.typescriptlang.org/[TypeScript] for web client
-* http://angularjs.org/[AngularJS] for web client
+* http://angular.io/[Angular 2] for web client
 * http://junit.org/[JUnit] for Java unit and integration testing
 * https://code.google.com/p/mockito/[Mockito] for Mocking
 * http://www.gradle.org/[Gradle] as build system
-* NPM, Grunt, Bower, TSG for the web client build
+* Node.js, npm, Bower, typings, webpack for the web client build
 
 == Requirements
 
-* Java 7 or 8 (JDK) installed
-* Node.js installed
-** Grunt CLI installed (npm install -g grunt-cli)
+* Java 8 (JDK) installed
+
+You don't need to install Node.js and all the JavaScript tooling,
+since those tools are installed automatocally by the Gradle build.
+But it would be convenient to have those tolls installed
+if you want to use theme directly instead of using the Gradle wrapper tasks.
+
+* Optional
+** Node.js and npm installed
+** TypeScript installed (npm install -g typescript)
 ** Bower installed (npm install -g bower)
-** TSD installed (npm install -g tsd)
+** Typings installed (npm install -g typings)
 
 In the vagrant directory you find a Vagrantfile to create a (German) development environment.
 
@@ -39,5 +46,5 @@ In the vagrant directory you find a Vagrantfile to create a (German) development
 
 When you want to run the tutorial locally, prepare all the labs:
 
-* ./gradlew prepareJs (invokes npm install, bower install, tsd reinstall on all JavaScript projects)
-* ./gradlew clean build (builds all the tutorial labs (Java parts), runs all the Java tests)
+* ./gradlew prepareJs (installs all node modules, typings and other dependencies in all labs)
+* ./gradlew clean build (builds all the tutorial labs (Java parts + JavaScript parts), runs all the Java tests)
