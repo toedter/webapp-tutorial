@@ -8,7 +8,7 @@ buildscript {
 }
 
 plugins {
-    id "com.moowork.node" version "0.12"
+    id "com.moowork.node" version "0.13"
 }
 
 node {
@@ -19,13 +19,14 @@ node {
     nodeModulesDir = file("${project.projectDir}")
 }
 
-npm_install.inputs.dir new File(projectDir, "package.json")
-npm_install.outputs.dir new File(projectDir, "node_modules")
+npm_install.inputs.file new File(projectDir, "package.json")
+npm_install.outputs.dir fileTree(dir: "node_modules", exclude: "node_modules/.bin/**")
 
-npm_run_build.dependsOn npm_install
+npm_run_build.inputs.dir new File(projectDir, "src")
+npm_run_build.outputs.dir new File(projectDir, "dist")
 
 task prepareJS {}
-prepareJS.dependsOn npm_run_build
+prepareJS.dependsOn npm_install
 
 allprojects {
 
@@ -33,14 +34,14 @@ allprojects {
     apply plugin: 'eclipse'
 
     task wrapper(type: Wrapper) {
-        gradleVersion = '3.0'
+        gradleVersion = '3.1'
     }
 
     repositories {
         mavenCentral()
     }
 
-    task cleanJS {
+    task cleanJS << {
         delete 'node_modules'
         delete 'typings'
         delete 'bower_components'

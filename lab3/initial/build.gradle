@@ -6,14 +6,15 @@ node {
     nodeModulesDir = file("${project.projectDir}")
 }
 
-task clean {
+task clean << {
     delete "dist"
 }
 
-npm_install.inputs.dir new File(projectDir, "package.json")
-npm_install.outputs.dir new File(projectDir, "node_modules")
+npm_run_build.inputs.dir new File(projectDir, "src")
+npm_run_build.outputs.dir new File(projectDir, "dist")
 
-npm_run_build.dependsOn npm_install
+task build {}
+build.dependsOn npm_run_build
 
 task prepareJS {}
-prepareJS.dependsOn npm_run_build
+prepareJS.dependsOn npm_install

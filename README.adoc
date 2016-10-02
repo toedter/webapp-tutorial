@@ -46,5 +46,5 @@ In the vagrant directory you find a Vagrantfile to create a (German) development
 
 When you want to run the tutorial locally, prepare all the labs:
 
-* ./gradlew prepareJs (installs all node modules, typings and other dependencies in all labs)
+* ./gradlew prepareJs --console plain (installs all node modules, typings and other dependencies in all labs)
 * ./gradlew clean build (builds all the tutorial labs (Java parts + JavaScript parts), runs all the Java tests)

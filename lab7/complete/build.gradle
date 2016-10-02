@@ -18,6 +18,9 @@ clean{
     delete "dist"
 }
 
+npm_run_build.inputs.dir new File(projectDir, "src")
+npm_run_build.outputs.dir new File(projectDir, "dist")
+
 task copyWebApp(type: Copy) {
     from('dist') {
         include '**/*.js'
@@ -31,10 +34,9 @@ task copyWebApp(type: Copy) {
     includeEmptyDirs = false
 }
 
-npm_install.inputs.dir new File(projectDir, "package.json")
-npm_install.outputs.dir new File(projectDir, "node_modules")
+task prepareJS {}
+prepareJS.dependsOn npm_install
 
-npm_run_build.dependsOn npm_install
 copyWebApp.dependsOn npm_run_build
 build.dependsOn copyWebApp
 
