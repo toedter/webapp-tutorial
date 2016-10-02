@@ -9,4 +9,4 @@ services:
   - docker
 
 script:
-  - ./gradlew prepareJS build
+  - ./gradlew prepareJS build --console plain
