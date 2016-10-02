@@ -19,9 +19,9 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 * Java 8 (JDK) installed
 
 You don't need to install Node.js and all the JavaScript tooling,
-since those tools are installed automatocally by the Gradle build.
-But it would be convenient to have those tolls installed
-if you want to use theme directly instead of using the Gradle wrapper tasks.
+since those tools are installed automatically by the Gradle build.
+But it would be convenient to have those tools installed
+if you want to use them directly instead of using the Gradle wrapper tasks.
 
 * Optional
 ** Node.js and npm installed
