@@ -7,7 +7,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockServletContext;
@@ -19,20 +21,17 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = MockServletContext.class)
+@WebMvcTest(HelloController.class)
 public class HelloControllerTest {
 
-	private MockMvc mockMVC;
+    @Autowired
+    private MockMvc mockMVC;
 
-	@Before
-	public void setUp() throws Exception {
-		mockMVC = MockMvcBuilders.standaloneSetup(new HelloController()).build();
-	}
-
-	@Test
-	public void shouldGetHello() throws Exception {
-		mockMVC.perform(MockMvcRequestBuilders.get("/").accept(MediaType.APPLICATION_JSON))
-				.andExpect(status().isOk())
-				.andExpect(content().string(equalTo(HelloController.LAB1_GREETINGS_FROM_SPRING_BOOT )));
-	}
+    @Test
+    public void shouldGetHello() throws Exception {
+        mockMVC.perform(MockMvcRequestBuilders.get("/")
+                .accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(equalTo(HelloController.LAB1_GREETINGS_FROM_SPRING_BOOT)));
+    }
 }
