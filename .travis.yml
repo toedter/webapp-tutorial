@@ -9,4 +9,4 @@ services:
   - docker
 
 script:
-  - ./gradlew prepareJS :npm_run_typings-install build -x test
+  - ./gradlew prepareJS :npm_run_typings-install build

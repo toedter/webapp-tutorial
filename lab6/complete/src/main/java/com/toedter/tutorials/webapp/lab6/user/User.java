@@ -1,4 +1,4 @@
-package com.toedter.tutorials.webapp.lab7.user;
+package com.toedter.tutorials.webapp.lab6.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

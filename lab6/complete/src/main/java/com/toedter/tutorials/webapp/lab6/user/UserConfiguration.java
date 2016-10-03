@@ -1,4 +1,4 @@
-package com.toedter.tutorials.webapp.lab7.user;
+package com.toedter.tutorials.webapp.lab6.user;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;

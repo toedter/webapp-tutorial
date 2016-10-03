@@ -1,6 +1,6 @@
-package com.toedter.tutorials.webapp.lab7;
+package com.toedter.tutorials.webapp.lab6;
 
-import com.toedter.tutorials.webapp.lab7.user.UserTestDataLoader;
+import com.toedter.tutorials.webapp.lab6.user.UserTestDataLoader;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.toedter.tutorials.webapp.lab7.user;
+package com.toedter.tutorials.webapp.lab6.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

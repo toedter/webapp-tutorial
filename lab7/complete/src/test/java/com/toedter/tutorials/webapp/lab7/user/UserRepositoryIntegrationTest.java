@@ -1,35 +1,30 @@
 package com.toedter.tutorials.webapp.lab7.user;
 
-import com.toedter.tutorials.webapp.lab7.Application;
-import com.toedter.tutorials.webapp.lab7.user.User;
-import com.toedter.tutorials.webapp.lab7.user.UserRepository;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@SpringApplicationConfiguration(classes = Application.class)
-@Transactional
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class UserRepositoryIntegrationTest {
 
 	@Autowired
 	UserRepository userRepository;
 
 	@Test
-	public void findsAllUsers() {
+	public void shouldFindsAllUsers() {
 		Iterable<User> users = userRepository.findAll();
 		assertThat(users, is(not(emptyIterable())));
 	}
 
 	@Test
-	public void createsNewUser() {
+	public void shouldCreatesNewUser() {
 		Long before = userRepository.count();
 
 		User user = userRepository.save(createUser());
