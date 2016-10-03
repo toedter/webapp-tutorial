@@ -12,8 +12,8 @@ plugins {
 }
 
 node {
-    version = '6.5.0'
-    npmVersion = '3.10.7'
+    version = '6.7.0'
+    npmVersion = '3.10.8'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")

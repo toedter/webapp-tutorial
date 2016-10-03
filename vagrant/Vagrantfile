@@ -38,9 +38,7 @@ cd /home/vagrant
 git clone https://github.com/toedter/webapp-tutorial.git
 sudo chown -R vagrant:vagrant .npm
 cd webapp-tutorial
-git checkout angular2
-./gradlew npm_install
-./gradlew build
+./gradlew prepareJS :npm_run_typings-install build --console plain
 
 # install xfce
 sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
@@ -51,8 +49,8 @@ sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 sudo apt-get install -y chromium-browser
 
 # install IntelliJ IDEA  
-sudo wget -O /opt/ideaIU-2016.2.tar.gz https://download.jetbrains.com/idea/ideaIU-2016.2.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-2016.2.tar.gz
+sudo wget -O /opt/ideaIU-2016.2.4.tar.gz https://download.jetbrains.com/idea/ideaIU-2016.2.4.tar.gz
+cd /opt/ && sudo tar -zxvf ideaIU-2016.2.4.tar.gz
 sudo rm ideaIU-2016.2.tar.gz
 sudo chown -R vagrant:vagrant .
 
