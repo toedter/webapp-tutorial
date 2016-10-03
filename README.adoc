@@ -1,5 +1,8 @@
 = WebApp Tutorial
 
+image:https://travis-ci.org/toedter/webapp-tutorial.svg?branch=master[Build Status, link="https://travis-ci.org/toedter/webapp-tutorial"]
+image:http://img.shields.io/badge/license-MIT-blue.svg["MIT", link="http://toedter.mit-license.org"]
+
 This is tutorial material for building web apps with Spring Boot, Spring Data Rest, AnguluarJS and TypeScript.
 
 == Used Technologies
@@ -29,6 +32,16 @@ if you want to use them directly instead of using the Gradle wrapper tasks.
 ** Bower installed (npm install -g bower)
 ** Typings installed (npm install -g typings)
 
+== Getting Started
+
+When you want to run the tutorial locally, prepare all the labs:
+
+* ./gradlew prepareJs --console plain (installs all node modules, typings and other dependencies in all labs)
+* ./gradlew :npm_run_typings-install --console plain (installs the top level typings)
+* ./gradlew clean build (builds all the tutorial labs (Java parts + JavaScript parts), runs all the Java tests)
+
+== Creating a tutorial VM with Vagrant
+
 In the vagrant directory you find a Vagrantfile to create a (German) development environment.
 
 * Install Vagrant and VirtualBox
@@ -39,12 +52,7 @@ In the vagrant directory you find a Vagrantfile to create a (German) development
 * You find this project at /home/vagrant/webapp-tutorial
 * All Gradle and JavaScript dependencies are already in the VM
 * You find an IntelliJ IDEA trial under /opt
-* Before starting IntelliJ you have to configure the Java 8 JDK
+* Open terminal in the IntelliJ/..../bin folder and type ./idea
+* Before importing the webapp-tutorial project with Gradle you have to configure the Java 8 JDK
 * After starting IntelliJ you have to install the Lombok plugin manually.
 
-== Getting Started
-
-When you want to run the tutorial locally, prepare all the labs:
-
-* ./gradlew prepareJs --console plain (installs all node modules, typings and other dependencies in all labs)
-* ./gradlew clean build (builds all the tutorial labs (Java parts + JavaScript parts), runs all the Java tests)
