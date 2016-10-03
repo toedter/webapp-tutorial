@@ -28,7 +28,7 @@ public class HelloControllerTest {
     private MockMvc mockMVC;
 
     @Test
-    public void shouldGetHello() throws Exception {
+    public void shouldGetGreeting() throws Exception {
         mockMVC.perform(MockMvcRequestBuilders.get("/")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
