@@ -1,5 +1,3 @@
-///<reference path="user.ts"/>
-
 namespace tutorial.webapp {
     export class SimpleUser implements User {
 
