@@ -6,7 +6,7 @@ import {UsersService} from './users.service';
 @Component({
     selector: 'chat-messages',
     templateUrl: 'app/user/users.component.html',
-    viewProviders: [UsersService],
+    providers: [UsersService],
 })
 export class UsersComponent {
     private users: User[];
