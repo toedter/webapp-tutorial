@@ -12,8 +12,7 @@ plugins {
 }
 
 node {
-    version = '6.7.0'
-    npmVersion = '3.10.8'
+    version = '6.8.0'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
@@ -43,8 +42,9 @@ allprojects {
 
     task cleanJS << {
         delete 'node_modules'
-        delete 'typings'
+        delete 'dist'
         delete 'bower_components'
+        delete 'typings'
     }
 
     idea {

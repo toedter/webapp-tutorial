@@ -5,7 +5,7 @@ import {UsersService} from './users.service';
 
 @Component({
     selector: 'chat-messages',
-    templateUrl: 'app/user/users.component.html',
+    templateUrl: 'users.component.html',
     providers: [UsersService],
 })
 export class UsersComponent {

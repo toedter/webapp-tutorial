@@ -4,8 +4,6 @@
   "version": "1.0.0",
   "description": "tutorial web client - a tutorial lab",
   "scripts": {
-    "typings-install": "./node_modules/.bin/typings install",
-    "postinstall": "npm run typings-install",
     "build": "./node_modules/.bin/tsc",
     "test": "./node_modules/.bin/karma start"
   },
@@ -17,11 +15,10 @@
   "dependencies": {
   },
   "devDependencies": {
-    "jasmine-core": "^2.4.1",
-    "karma": "^1.1.1",
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
     "karma-jasmine": "^1.0.2",
-    "karma-phantomjs-launcher": "^1.0.0",
-    "typescript": "^2.0.3",
-    "typings": "^1.4.0"
+    "karma-phantomjs-launcher": "^1.0.2",
+    "typescript": "^2.0.3"
   }
 }

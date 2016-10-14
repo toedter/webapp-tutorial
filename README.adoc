@@ -15,7 +15,7 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 * http://junit.org/[JUnit] for Java unit and integration testing
 * https://code.google.com/p/mockito/[Mockito] for Mocking
 * http://www.gradle.org/[Gradle] as build system
-* Node.js, npm, Bower, typings, webpack for the web client build
+* Node.js, npm, webpack for the web client build
 
 == Requirements
 
@@ -28,16 +28,12 @@ if you want to use them directly instead of using the Gradle wrapper tasks.
 
 * Optional
 ** Node.js and npm installed
-** TypeScript installed (npm install -g typescript)
-** Bower installed (npm install -g bower)
-** Typings installed (npm install -g typings)
 
 == Getting Started
 
 When you want to run the tutorial locally, prepare all the labs:
 
-* ./gradlew prepareJs --console plain (installs all node modules, typings and other dependencies in all labs)
-* ./gradlew :npm_run_typings-install --console plain (installs the top level typings)
+* ./gradlew prepareJs --console plain (installs all node modules and other dependencies in all labs)
 * ./gradlew clean build (builds all the tutorial labs (Java parts + JavaScript parts), runs all the Java tests)
 
 == Creating a tutorial VM with Vagrant

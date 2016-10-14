@@ -7,11 +7,10 @@
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "types": ["node", "es6-promise", "es6-collections", "jasmine"]
   },
   "exclude": [
-    "typings/main.d.ts",
-    "typings/main",
     "node_modules"
   ],
   "compileOnSave": false,

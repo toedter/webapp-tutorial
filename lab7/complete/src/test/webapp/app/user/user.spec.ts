@@ -1,5 +1,3 @@
-///<reference path='../../../../../../../typings/index.d.ts'/>
-
 import {User} from '../../../../main/webapp/app/user/user';
 
 describe('User', () => {

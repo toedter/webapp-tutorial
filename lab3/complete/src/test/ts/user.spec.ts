@@ -1,5 +1,3 @@
-/// <reference path='../../../typings/index.d.ts' />
-
 describe('User', () => {
     it('should create user and get attributes', () => {
         let user: tutorial.webapp.User =

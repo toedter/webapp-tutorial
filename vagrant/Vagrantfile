@@ -25,7 +25,6 @@ sudo dpkg-reconfigure -f noninteractive tzdata
 # install node & js tools
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
-sudo npm install -g typings
 
 # install java
 echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
@@ -38,7 +37,7 @@ cd /home/vagrant
 git clone https://github.com/toedter/webapp-tutorial.git
 sudo chown -R vagrant:vagrant .npm
 cd webapp-tutorial
-./gradlew prepareJS :npm_run_typings-install build --console plain
+./gradlew prepareJS build --console plain
 
 # install xfce
 sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
