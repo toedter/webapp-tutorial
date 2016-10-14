@@ -27,6 +27,9 @@ npm_run_build.outputs.dir new File(projectDir, "dist")
 task prepareJS {}
 prepareJS.dependsOn npm_install
 
+task build {}
+build.dependsOn prepareJS
+
 allprojects {
 
     apply plugin: 'idea'
