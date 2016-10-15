@@ -1,4 +1,4 @@
-<div class="container">
+<div>
     <h4>Users</h4>
     <table class="table table-striped table-condensed">
         <thead>
@@ -9,11 +9,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let user of users">
-            <td style="text-align: left; width:10%">{{user.id}}</td>
-            <td style="text-align: left; width:20%">{{user.fullName}}</td>
-            <td style="text-align: left; width:70%">{{user.email}}</td>
-        </tr>
+
+        <!-- add a loop over all users using *ngFor -->
+
+        <!-- end loop -->
         </tbody>
     </table>
 </div>
