@@ -10,5 +10,4 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
   bootstrap   : [AppComponent]
 })
 export class AppModule {
-
 }
