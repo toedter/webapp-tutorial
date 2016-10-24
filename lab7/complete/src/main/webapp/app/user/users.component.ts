@@ -16,7 +16,8 @@ export class UsersComponent {
 
     ngOnInit() {
         this.usersService.getUsers()
-            .subscribe((users: User[]) => this.users = users,
+            .subscribe(
+                (users: User[]) => this.users = users,
                 error => console.error('UsersComponent: cannot get users from UserService'));
     }
 }
