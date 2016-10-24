@@ -27,7 +27,6 @@ var webpackConfig = {
             { test: /\.html$/, loader: 'raw-loader' }
         ]
     }
-
 };
 
 
