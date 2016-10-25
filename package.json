@@ -17,6 +17,7 @@
     "angular2-template-loader": "^0.5.0",
     "awesome-typescript-loader": "^2.2.4",
     "css-loader": "^0.25.0",
+    "es6-shim": "^0.35.1",
     "jasmine-core": "^2.3.4",
     "jasmine-spec-reporter": "^2.4.0",
     "json-loader": "^0.5.4",

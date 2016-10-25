@@ -1,10 +1,12 @@
 Error.stackTraceLimit = Infinity;
 
-require('es6-shim');
+require('core-js/client/shim');
 require('reflect-metadata');
 
 require('zone.js/dist/zone');
 require('zone.js/dist/long-stack-trace-zone');
+require('zone.js/dist/proxy');
+require('zone.js/dist/sync-test');
 require('zone.js/dist/jasmine-patch');
 require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
@@ -18,7 +20,7 @@ require('zone.js/dist/fake-async-test');
  any file that ends with '.spec.ts' and get its path. By passing in true
  we say do this recursively
  */
-var appContext = require.context('./src/test/webapp', true, /\.spec\.ts/);
+var appContext = require.context('./src/test', true, /\.spec\.ts/);
 
 // get all the files, for each file, call the context function
 // that will require the file and load it up here. Context will
@@ -31,4 +33,4 @@ appContext.keys().forEach(appContext);
 var testing = require('@angular/core/testing');
 var browser = require('@angular/platform-browser-dynamic/testing');
 
-testing.setBaseTestProviders(browser.TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, browser.TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
+testing.TestBed.initTestEnvironment(browser.BrowserDynamicTestingModule, browser.platformBrowserDynamicTesting());
