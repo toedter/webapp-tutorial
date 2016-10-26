@@ -14,7 +14,7 @@ repositories {
     maven { url "http://repo.spring.io/milestone" }
 }
 
-clean{
+clean {
     delete "dist"
 }
 
@@ -35,10 +35,12 @@ task copyWebApp(type: Copy) {
 }
 
 task prepareJS {}
-prepareJS.dependsOn npm_install
-
+prepareJS.dependsOn npmInstall
 copyWebApp.dependsOn npm_run_build
-build.dependsOn copyWebApp
+npm_test.dependsOn prepareJS, npm_run_build
+
+build.dependsOn prepareJS, copyWebApp
+test.dependsOn npm_test
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
