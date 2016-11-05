@@ -17,10 +17,9 @@ export class UsersService {
             uri = 'http://localhost:8080' + uri;
         }
 
-        let observable: Observable<User[]> =
-            this.http.get(uri)
-                .map((response: Response) => response.json()._embedded['users'])
-                .catch(this.handleError);
+        let observable: Observable<User[]>;
+        // assign http.get with above uri to the observable
+        // and map the response json result:  response.json()._embedded['users']
 
         return observable;
     }

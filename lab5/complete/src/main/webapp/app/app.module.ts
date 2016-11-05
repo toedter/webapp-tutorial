@@ -15,6 +15,4 @@ import {LocationStrategy, HashLocationStrategy} from '@angular/common';
     providers   : [{provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap   : [WebApp]
 })
-export class AppModule {
-
-}
+export class AppModule {}
