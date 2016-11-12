@@ -52,3 +52,6 @@ In the vagrant directory you find a Vagrantfile to create a (German) development
 * Before importing the webapp-tutorial project with Gradle you have to configure the Java 8 JDK
 * After starting IntelliJ you have to install the Lombok plugin manually.
 
+== License
+
+MIT, see http://toedter.mit-license.org
