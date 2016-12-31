@@ -6,8 +6,10 @@ node {
     nodeModulesDir = file("${project.projectDir}")
 }
 
-task clean << {
-    delete "dist"
+task clean() {
+    doLast {
+        delete "dist"
+    }
 }
 
 npm_run_build.inputs.dir new File(projectDir, "src")

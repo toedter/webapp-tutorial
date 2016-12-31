@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.1.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
     }
 }
 
@@ -12,7 +12,7 @@ plugins {
 }
 
 node {
-    version = '6.9.1'
+    version = '6.9.2'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
@@ -36,18 +36,20 @@ allprojects {
     apply plugin: 'eclipse'
 
     task wrapper(type: Wrapper) {
-        gradleVersion = '3.1'
+        gradleVersion = '3.2.1'
     }
 
     repositories {
         mavenCentral()
     }
 
-    task cleanJS << {
-        delete 'node_modules'
-        delete 'dist'
-        delete 'bower_components'
-        delete 'typings'
+    task cleanJS() {
+        doLast {
+            delete 'node_modules'
+            delete 'dist'
+            delete 'bower_components'
+            delete 'typings'
+        }
     }
 
     idea {
