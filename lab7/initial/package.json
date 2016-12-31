@@ -1,7 +1,7 @@
 {
   "name": "webapp-tutorial-angular2-client",
   "version": "1.0.0",
-  "description": "Lab 7: The web part of the 'Cool Webapps' Tutorial",
+  "description": "The web part of the 'Cool Webapps' Tutorial",
   "scripts": {
     "build": "webpack --inline --colors --progress --display-error-details --display-cached",
     "watch": "npm run build -- --watch",
@@ -21,7 +21,7 @@
     "karma-mocha-reporter": "^2.0.3",
     "karma-phantomjs-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.7",
-    "karma-webpack": "1.8.0",
+    "karma-webpack": "1.8.1",
     "webpack": "^1.12.13",
     "webpack-dev-server": "^1.14.1"
   }
