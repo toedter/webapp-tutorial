@@ -11,7 +11,7 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 * https://www.typescriptlang.org/[Typescript] for the web client
 * http://stateless.co/hal_specification.html[HAL] (Hypertext Application Language) fpr hypermedia
 * http://projects.spring.io/spring-boot/[Spring Boot] (+ Data, REST, HATEOAS)
-* http://angular.io/[Angular 2] for web client
+* http://angular.io/[Angular] for web client
 * http://junit.org/[JUnit] for Java unit and integration testing
 * https://code.google.com/p/mockito/[Mockito] for Mocking
 * http://www.gradle.org/[Gradle] as build system
