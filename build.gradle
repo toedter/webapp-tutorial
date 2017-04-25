@@ -3,23 +3,20 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.4.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
     }
 }
 
 plugins {
-    id "com.moowork.node" version "0.13"
+    id "com.moowork.node" version "1.1.1"
 }
 
 node {
-    version = '6.10.1'
+    version = '6.10.2'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
 }
-
-npm_install.inputs.file new File(projectDir, "package.json")
-npm_install.outputs.dir fileTree(dir: "node_modules", exclude: "node_modules/.bin/**")
 
 npm_run_build.inputs.dir new File(projectDir, "src")
 npm_run_build.outputs.dir new File(projectDir, "dist")
@@ -36,7 +33,7 @@ allprojects {
     apply plugin: 'eclipse'
 
     task wrapper(type: Wrapper) {
-        gradleVersion = '3.2.1'
+        gradleVersion = '3.5'
     }
 
     repositories {
@@ -47,15 +44,12 @@ allprojects {
         doLast {
             delete 'node_modules'
             delete 'dist'
-            delete 'bower_components'
-            delete 'typings'
         }
     }
 
     idea {
         module {
             excludeDirs += file('node_modules')
-            excludeDirs += file('bower_components')
             excludeDirs += file('dist')
         }
     }

@@ -16,13 +16,13 @@
   "dependencies": {
   },
   "devDependencies": {
-    "karma": "1.5.0",
+    "karma": "1.6.0",
     "karma-jasmine": "1.1.0",
     "karma-mocha-reporter": "2.2.3",
     "karma-phantomjs-launcher": "1.0.4",
     "karma-sourcemap-loader": "0.3.7",
     "karma-webpack": "2.0.3",
-    "webpack": "2.3.2",
-    "webpack-dev-server": "2.4.2"
+    "webpack": "2.4.1",
+    "webpack-dev-server": "2.4.4"
   }
 }
