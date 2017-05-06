@@ -21,10 +21,6 @@ task copyWebApp(type: Copy) {
     from('build/dist') {
         include '**/*.js'
     }
-    from('src/main/webapp') {
-        include '**/*.css'
-        include '**/*.html'
-    }
     into 'build/resources/main/static'
 
     includeEmptyDirs = false
