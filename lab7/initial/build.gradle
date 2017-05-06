@@ -8,15 +8,17 @@ node {
     nodeModulesDir = file("${project.projectDir}")
 }
 
-clean {
-    delete "dist"
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/snapshot" }
+    maven { url "http://repo.spring.io/milestone" }
 }
 
 npm_run_build.inputs.dir new File(projectDir, "src")
-npm_run_build.outputs.dir new File(projectDir, "dist")
+npm_run_build.outputs.dir new File(projectDir, "build/dist")
 
 task copyWebApp(type: Copy) {
-    from('dist') {
+    from('build/dist') {
         include '**/*.js'
     }
     from('src/main/webapp') {
@@ -29,15 +31,18 @@ task copyWebApp(type: Copy) {
 }
 
 task prepareJS {}
-prepareJS.dependsOn npm_install
-
+prepareJS.dependsOn npmInstall
 copyWebApp.dependsOn npm_run_build
-build.dependsOn copyWebApp
+npm_test.dependsOn prepareJS, npm_run_build
+
+build.dependsOn prepareJS, copyWebApp
+test.dependsOn npm_test
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile "org.springframework.boot:spring-boot-starter-data-jpa"
     compile "org.springframework.boot:spring-boot-starter-data-rest"
+    compile "org.springframework.data:spring-data-rest-hal-browser"
     compile "org.projectlombok:lombok:1.16.6"
     compile "com.jayway.jsonpath:json-path"
 

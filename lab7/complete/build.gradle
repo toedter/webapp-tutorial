@@ -14,15 +14,11 @@ repositories {
     maven { url "http://repo.spring.io/milestone" }
 }
 
-clean {
-    delete "dist"
-}
-
 npm_run_build.inputs.dir new File(projectDir, "src")
-npm_run_build.outputs.dir new File(projectDir, "dist")
+npm_run_build.outputs.dir new File(projectDir, "build/dist")
 
 task copyWebApp(type: Copy) {
-    from('dist') {
+    from('build/dist') {
         include '**/*.js'
     }
     from('src/main/webapp') {

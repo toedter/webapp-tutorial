@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es5",
-    "outDir": "dist",
+    "outDir": "build/dist",
     "rootDir": ".",
     "sourceMap": true,
     "emitDecoratorMetadata": true,

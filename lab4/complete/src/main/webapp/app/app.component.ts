@@ -8,6 +8,6 @@ export class AppComponent {
     private hello: string;
 
     ngOnInit() {
-        this.hello = 'Hello, Angular2!';
+        this.hello = 'Hello, Angular!';
     }
 }

@@ -15,10 +15,10 @@
   "dependencies": {
   },
   "devDependencies": {
-    "jasmine-core": "2.6.0",
-    "karma": "1.6.0",
+    "jasmine-core": "2.6.1",
+    "karma": "1.7.0",
     "karma-jasmine": "1.1.0",
     "karma-phantomjs-launcher": "1.0.4",
-    "typescript": "2.2.2"
+    "typescript": "2.3.2"
   }
 }

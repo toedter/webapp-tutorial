@@ -48,9 +48,9 @@ sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 sudo apt-get install -y chromium-browser
 
 # install IntelliJ IDEA  
-sudo wget -O /opt/ideaIU-2016.3.3.tar.gz https://download.jetbrains.com/idea/ideaIU-2016.3.3.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-2016.3.3.tar.gz
-sudo rm /opt/ideaIU-2016.3.3.tar.gz
+sudo wget -O /opt/ideaIU-2017.1.2.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.1.2.tar.gz
+cd /opt/ && sudo tar -zxvf ideaIU-2017.1.2.tar.gz
+sudo rm /opt/ideaIU-2017.1.2.tar.gz
 sudo chown -R vagrant:vagrant .
 
 SCRIPT

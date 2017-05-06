@@ -12,14 +12,14 @@ plugins {
 }
 
 node {
-    version = '6.10.2'
+    version = '6.10.3'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
 }
 
 npm_run_build.inputs.dir new File(projectDir, "src")
-npm_run_build.outputs.dir new File(projectDir, "dist")
+npm_run_build.outputs.dir new File(projectDir, "build/dist")
 
 task prepareJS {}
 prepareJS.dependsOn npm_install
@@ -43,14 +43,12 @@ allprojects {
     task cleanJS() {
         doLast {
             delete 'node_modules'
-            delete 'dist'
         }
     }
 
     idea {
         module {
             excludeDirs += file('node_modules')
-            excludeDirs += file('dist')
         }
     }
 }
