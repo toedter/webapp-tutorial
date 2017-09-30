@@ -9,21 +9,20 @@ sudo sed -i 's,http://security.ubuntu.com/ubuntu,http://ftp.fau.de/ubuntu,' /etc
 
 # add repos and update
 sudo add-apt-repository -y ppa:webupd8team/java
-curl -sL https://deb.nodesource.com/setup | sudo bash -
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo add-apt-repository ppa:xubuntu-dev/xfce-4.12
 sudo apt-get -y update
 
 # switch to German keyboard layout
-sudo sed -i 's/"us"/"de"/g' /etc/default/keyboard
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y console-common
-sudo install-keymap de
+#sudo sed -i 's/"us"/"de"/g' /etc/default/keyboard
+#sudo DEBIAN_FRONTEND=noninteractive apt-get install -y console-common
+#sudo install-keymap de
 
 # set timezone to German timezone
-echo "Europe/Berlin" | sudo tee /etc/timezone
-sudo dpkg-reconfigure -f noninteractive tzdata
+#echo "Europe/Berlin" | sudo tee /etc/timezone
+#sudo dpkg-reconfigure -f noninteractive tzdata
 
 # install node & js tools
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # install java
@@ -48,9 +47,9 @@ sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 sudo apt-get install -y chromium-browser
 
 # install IntelliJ IDEA  
-sudo wget -O /opt/ideaIU-2017.1.2.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.1.2.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-2017.1.2.tar.gz
-sudo rm /opt/ideaIU-2017.1.2.tar.gz
+sudo wget -O /opt/ideaIU-2017.2.5-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.2.5-no-jdk.tar.gz
+cd /opt/ && sudo tar -zxvf ideaIU-2017.2.5-no-jdk.tar.gz
+sudo rm /opt/ideaIU-2017.2.5-no-jdk.tar.gz
 sudo chown -R vagrant:vagrant .
 
 SCRIPT
