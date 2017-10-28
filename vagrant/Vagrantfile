@@ -14,9 +14,9 @@ sudo add-apt-repository ppa:xubuntu-dev/xfce-4.12
 sudo apt-get -y update
 
 # switch to German keyboard layout
-#sudo sed -i 's/"us"/"de"/g' /etc/default/keyboard
-#sudo DEBIAN_FRONTEND=noninteractive apt-get install -y console-common
-#sudo install-keymap de
+sudo sed -i 's/"us"/"de"/g' /etc/default/keyboard
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y console-common
+sudo install-keymap de
 
 # set timezone to German timezone
 #echo "Europe/Berlin" | sudo tee /etc/timezone

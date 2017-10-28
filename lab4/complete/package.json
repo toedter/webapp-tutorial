@@ -15,7 +15,7 @@
   "dependencies": {
   },
   "devDependencies": {
-    "webpack": "3.6.0",
-    "webpack-dev-server": "2.8.2"
+    "webpack": "3.8.1",
+    "webpack-dev-server": "2.9.3"
   }
 }
