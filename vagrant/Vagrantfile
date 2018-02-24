@@ -1,69 +1,110 @@
+# -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-$script = <<SCRIPT
+# The project to control the maschiene in the cloud via Ansible.
 
-# switch Ubuntu download mirror to German server
-sudo sed -i 's,http://us.archive.ubuntu.com/ubuntu/,http://ftp.fau.de/ubuntu/,' /etc/apt/sources.list
-sudo sed -i 's,http://security.ubuntu.com/ubuntu,http://ftp.fau.de/ubuntu,' /etc/apt/sources.list
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+	# The most common configuration options are documented and commented below.
+	# For a complete reference, please see the online documentation at
+	# https://docs.vagrantup.com.
 
+	# Every Vagrant development environment requires a box. You can search for
+	# boxes at https://vagrantcloud.com/search.
+	config.vm.box = "boxcutter/ubuntu1604"
 
-# add repos and update
-sudo add-apt-repository -y ppa:webupd8team/java
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo add-apt-repository ppa:xubuntu-dev/xfce-4.12
-sudo apt-get -y update
+	# The url from where the 'config.vm.box' box will be fetched if it
+	# doesn't already exist on the user's system.
+	config.vm.box_url = "https://app.vagrantup.com/boxcutter/boxes/ubuntu1604"
 
-# switch to German keyboard layout
-sudo sed -i 's/"us"/"de"/g' /etc/default/keyboard
-sudo DEBIAN_FRONTEND=noninteractive apt-get install -y console-common
-sudo install-keymap de
+	# memory increase
+	config.vm.provider "virtualbox" do |v|
+		v.name = "webapp-tutorial"
+        v.memory = 8964
+        v.cpus = 4
+		# Display the VirtualBox GUI when booting the machine
+		v.gui = true
+    end
+					  
+	PATH_VAGRANT_PROJECT=File.dirname(__FILE__)
+	
+	
+	
+	###############
+	#####  LOCAL PROVISIONERS INSTEAD OF DOWNLOAD
+		  
+	# Use shell script to provision
+	config.vm.provision "shell", inline: <<-SHELL
+			
+	
+		# update
+		apt-get update	
+		
 
-# set timezone to German timezone
-#echo "Europe/Berlin" | sudo tee /etc/timezone
-#sudo dpkg-reconfigure -f noninteractive tzdata
+		# switch to German keyboard layout
+		sudo sed -i 's/"us"/"de"/g' /etc/default/keyboard
+		sudo DEBIAN_FRONTEND=noninteractive apt-get install -y console-common
+		sudo install-keymap de		
+		
+		
+		# install node & js tools
+		sudo apt-get install -y nodejs
+		
+		
+		# java
+		sudo apt-get install -y software-properties-common python-software-properties
+		echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections
+		sudo add-apt-repository ppa:webupd8team/java -y
+		sudo apt-get update
+		sudo apt-get install -y oracle-java8-installer
+		echo "Setting environment variables for Java 8.."
+		sudo apt-get install -y oracle-java8-set-default
+		
+		
+		# set the language to German
+		apt-get -y install language-pack-de language-pack-de
+		localectl set-locale LANG=de_DE.UTF-8 LANGUAGE="de_DE:de"
+		update-locale LANG=de_DE
+		update-locale LANGUAGE=de_DE
+		
+		
+		# Install xfce and virtualbox additions
+		sudo apt-get update
+		apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
+		# Permit anyone to start the GUI
+		#sudo sed -i 's/allowed_users=.*$/allowed_users=anybody/' /etc/X11/Xwrapper.config
+		sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
+		
+		
+		# install chrome
+		sudo apt-get install -y chromium-browser
+		
 
-# install node & js tools
-sudo apt-get install -y nodejs
+		# install git and clone webapp-tutorial
+		sudo apt-get install -y git
+		cd /home/vagrant
+		git clone https://github.com/toedter/webapp-tutorial.git
+		sudo chown -R vagrant:vagrant .npm
+		cd webapp-tutorial
+		./gradlew prepareJS build --console plain
+		
+		
+		
+		# install IntelliJ IDEA  
+		sudo wget -O /opt/ideaIU-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.3.3-no-jdk.tar.gz
+		cd /opt/ && sudo tar -zxvf ideaIU-no-jdk.tar.gz
+		sudo rm /opt/ideaIU-no-jdk.tar.gz
+		sudo chown -R vagrant:vagrant .
+		
 
-# install java
-echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
-echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-selections
-sudo apt-get -y install oracle-java8-installer
-
-# install git and clone webapp-tutorial
-sudo apt-get install -y git
-cd /home/vagrant
-git clone https://github.com/toedter/webapp-tutorial.git
-sudo chown -R vagrant:vagrant .npm
-cd webapp-tutorial
-./gradlew prepareJS build --console plain
-
-# install xfce
-sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
-sudo apt-get install gnome-icon-theme-full tango-icon-theme
-sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
-
-# install chrome
-sudo apt-get install -y chromium-browser
-
-# install IntelliJ IDEA  
-sudo wget -O /opt/ideaIU-2017.2.5-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.2.5-no-jdk.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-2017.2.5-no-jdk.tar.gz
-sudo rm /opt/ideaIU-2017.2.5-no-jdk.tar.gz
-sudo chown -R vagrant:vagrant .
-
-SCRIPT
-
-
-Vagrant.configure(2) do |config|
-
-  config.vm.box = "ubuntu/trusty64"
-
-  config.vm.provider "virtualbox" do |vb|
-     vb.name = "webapp-tutorial"
-     vb.gui = true  
-     vb.memory = "4096"
-  end
+			
+		
+		# start the GUI
+		startx
+		
+	SHELL
   
-  config.vm.provision "shell", inline: $script, privileged: false
 end
