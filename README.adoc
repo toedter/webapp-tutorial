@@ -5,6 +5,7 @@ image:http://img.shields.io/badge/license-MIT-blue.svg["MIT", link="http://toedt
 
 This is tutorial material for building web apps with Spring Boot, Spring Data Rest, Anguluar 2 and TypeScript.
 
+
 == Used Technologies
 
 * http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Java 8] for the REST services
@@ -43,14 +44,18 @@ In the vagrant directory you find a Vagrantfile to create a (German) development
 * Install Vagrant and VirtualBox
 * Invoke "vagrant up" in a terminal
 * Wait for 20 minutes letting Vagrant create the whole virtual machine
-* In the VM, log in as vagrant/vagrant and then invoke: startx
-* The latest Ubuntu with a simple desktop will start up
-* You find this project at /home/vagrant/webapp-tutorial
+* In the VM, log in as vagrant/vagrant and then invoke: startx - The latest Ubuntu with a simple desktop will start up
 * All Gradle and JavaScript dependencies are already in the VM
-* You find an IntelliJ IDEA trial under /opt
-* Open terminal in the IntelliJ/..../bin folder and type ./idea
-* Before importing the webapp-tutorial project with Gradle you have to configure the Java 8 JDK
-* After starting IntelliJ you have to install the Lombok plugin manually.
+* You find an IntelliJ IDEA trial under /opt/idea-IU-*
+
+
+
+== Starting a Lab
+* Open the terminal: "Anwendungen > System > XFce Terminal" (supports copy paste via right click)
+* Start idea: "sudo bash /opt/idea-IU-*/bin/idea.sh" Choose Default settings and evaluate
+* Import the project: Import Project > /home/vagrant/webapp-tutorial/ > Import project from external model > Gradle > Fiinish
+* After starting IntelliJ you have to install the Idea "Lombok plugin" manually: File > Settings > Plugins > Enter "Lombock" > Search in Repositories > Install
+
 
 == License
 
