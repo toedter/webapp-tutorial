@@ -22,13 +22,13 @@ Vagrant.configure("2") do |config|
 
 	# memory increase
 	config.vm.provider "virtualbox" do |v|
-		v.name = "webapp-tutorial"
+		v.name = "webapp-tutorial2"
         v.memory = 8964
         v.cpus = 4
 		# Display the VirtualBox GUI when booting the machine
 		v.gui = true
 		# enable shared clipboard
-		vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional'] 
+		v.customize ['modifyvm', :id, '--clipboard', 'bidirectional'] 
     end
 					  
 	PATH_VAGRANT_PROJECT=File.dirname(__FILE__)
@@ -86,7 +86,6 @@ Vagrant.configure("2") do |config|
 		# install the goodies, like terminal copy paste (Middle mouse key is paste, selecting and left-clicking is copy)
 		sudo apt-get install -y xfce4-goodies
 		
-
 		
 		sudo echo "setxkbmap de" >> "/home/vagrant/.bashrc"
 		sudo echo "setxkbmap de" >> "/root/.bashrc"
@@ -95,28 +94,52 @@ Vagrant.configure("2") do |config|
 		# install chrome
 		sudo apt-get install -y chromium-browser
 		
+		
+		# install NodeJS
+		curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+		sudo apt-get install -y nodejs
+			
+
+		
+		
 
 		# install git and clone webapp-tutorial
 		sudo apt-get install -y git
 		cd /home/vagrant
 		git clone https://github.com/toedter/webapp-tutorial.git
 		sudo chown -R vagrant:vagrant .npm
-		cd webapp-tutorial
-		./gradlew prepareJS build --console plain
+		
+		# pre build the project
+		# cd webapp-tutorial
+		# ./gradlew prepareJS build --console plain
 		
 		
 		
 		# install IntelliJ IDEA  
-		sudo wget -O /opt/ideaIU-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.3.3-no-jdk.tar.gz
+		sudo wget --quiet -O /opt/ideaIU-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.3.3-no-jdk.tar.gz
 		cd /opt/ && sudo tar -zxvf ideaIU-no-jdk.tar.gz
 		sudo rm /opt/ideaIU-no-jdk.tar.gz
 		sudo chown -R vagrant:vagrant .
 		
+					
+		
+		# angular
+		sudo npm install --unsafe-perm -g @angular/cli
+		
+		
+		# to install necessary npm modules go to the lab, execute
+		# "npm install"
 		
 		
 		# start the GUI
 		# login works with vagrant / vagrant
 		startx
+		
+		
+		# start the idea ide 
+		# sudo bash /home/vagrant/idea*/bin/idea.sh
+		
+		# check slides under https://speakerdeck.com/toedter/cool-web-apps-with-spring-boot-angular-and-typescript
 		
 	SHELL
   
