@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.8.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.0.RELEASE")
     }
 }
 
@@ -33,7 +33,7 @@ allprojects {
     apply plugin: 'eclipse'
 
     task wrapper(type: Wrapper) {
-        gradleVersion = '4.2.1'
+        gradleVersion = '4.6'
     }
 
     repositories {
