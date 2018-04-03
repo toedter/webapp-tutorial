@@ -1,14 +1,19 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
+<header>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="container">
             <a class="navbar-brand" href="#">Webapp Tutorial</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" [routerLink]="['users']">Users</a>
+                    <a class="nav-item nav-link" [routerLink]="['about']">About</a>
+                </div>
+            </div>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li><a [routerLink]="['about']">About</a></li>
-                <li><a [routerLink]="['users']">Users</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+    </nav>
+</header>
+<br>
 <router-outlet></router-outlet>
