@@ -40,19 +40,19 @@
     "webpack-merge": "4.1.0"
   },
   "dependencies": {
-    "@angular/common": "4.4.6",
-    "@angular/compiler": "4.4.6",
-    "@angular/core": "4.4.6",
-    "@angular/forms": "4.4.6",
-    "@angular/http": "4.4.6",
-    "@angular/platform-browser": "4.4.6",
-    "@angular/platform-browser-dynamic": "4.4.6",
-    "@angular/router": "4.4.6",
-    "core-js": "2.5.1",
+    "@angular/common": "5.2.9",
+    "@angular/compiler": "5.2.9",
+    "@angular/core": "5.2.9",
+    "@angular/forms": "5.2.9",
+    "@angular/http": "5.2.9",
+    "@angular/platform-browser": "5.2.9",
+    "@angular/platform-browser-dynamic": "5.2.9",
+    "@angular/router": "5.2.9",
+    "core-js": "2.5.4",
     "es-module-loader": "2.2.8",
-    "reflect-metadata": "0.1.10",
-    "rxjs": "5.5.2",
-    "zone.js": "0.8.18"
+    "reflect-metadata": "0.1.12",
+    "rxjs": "5.5.8",
+    "zone.js": "0.8.24"
   },
   "repository": {
     "type": "git",
