@@ -34,7 +34,7 @@
     "raw-loader": "0.5.1",
     "source-map-loader": "0.2.3",
     "to-string-loader": "1.1.5",
-    "typescript": "2.5.3",
+    "typescript": "^2.8.1",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.3",
     "webpack-merge": "4.1.0"
