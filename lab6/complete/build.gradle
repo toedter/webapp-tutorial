@@ -35,9 +35,6 @@ task copyWebApp(type: Copy) {
     includeEmptyDirs = false
 }
 
-task prepareJS {}
-prepareJS.dependsOn npm_install
-
 copyWebApp.dependsOn npm_run_build
 build.dependsOn copyWebApp
 

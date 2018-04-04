@@ -4,21 +4,18 @@
   "version": "1.0.0",
   "description": "tutorial web client - a tutorial lab",
   "scripts": {
-    "build": "./node_modules/.bin/tsc",
-    "test": "./node_modules/.bin/karma start"
+    "build": "tsc",
+    "test": "karma start"
   },
   "author": {
     "name": "Kai Toedter",
     "url": "http://toedter.com"
   },
   "license": "MIT",
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toedter/webapp-tutorial.git"
   },
-  "devDependencies": {
-    "jasmine-core": "2.8.0",
-    "karma": "1.7.1",
-    "karma-jasmine": "1.1.0",
-    "karma-phantomjs-launcher": "1.0.4",
-    "typescript": "2.5.3"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }

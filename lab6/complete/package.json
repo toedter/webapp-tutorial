@@ -13,16 +13,10 @@
     "Kai Toedter <kai@toedter.com>"
   ],
   "license": "MIT",
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toedter/webapp-tutorial.git"
   },
-  "devDependencies": {
-    "karma": "1.7.1",
-    "karma-jasmine": "1.1.0",
-    "karma-mocha-reporter": "2.2.5",
-    "karma-phantomjs-launcher": "1.0.4",
-    "karma-sourcemap-loader": "0.3.7",
-    "karma-webpack": "2.0.5",
-    "webpack": "3.8.1",
-    "webpack-dev-server": "2.9.3"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }

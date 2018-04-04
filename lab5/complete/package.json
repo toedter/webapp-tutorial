@@ -12,10 +12,10 @@
     "Kai Toedter <kai@toedter.com>"
   ],
   "license": "MIT",
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toedter/webapp-tutorial.git"
   },
-  "devDependencies": {
-    "webpack": "3.8.1",
-    "webpack-dev-server": "2.9.3"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
