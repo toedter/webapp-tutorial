@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
@@ -7,7 +7,7 @@ import {User} from './user';
 
 @Injectable()
 export class UsersService {
-    constructor(private http: Http) {
+    constructor(private http: HttpClient) {
     }
 
     public getUsers(): Observable<User[]> {
@@ -19,7 +19,7 @@ export class UsersService {
 
         let observable: Observable<User[]>;
         // assign http.get with above uri to the observable
-        // and map the response json result:  response.json()._embedded['users']
+        // and map the response json result:  response._embedded['users']
 
         return observable;
     }
