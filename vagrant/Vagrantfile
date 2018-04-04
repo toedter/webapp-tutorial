@@ -6,7 +6,6 @@ $script = <<SCRIPT
 sudo sed -i 's,http://us.archive.ubuntu.com/ubuntu/,http://ftp.fau.de/ubuntu/,' /etc/apt/sources.list
 sudo sed -i 's,http://security.ubuntu.com/ubuntu,http://ftp.fau.de/ubuntu,' /etc/apt/sources.list
 
-
 # add repos and update
 sudo add-apt-repository -y ppa:webupd8team/java
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
@@ -38,6 +37,9 @@ sudo chown -R vagrant:vagrant .npm
 cd webapp-tutorial
 ./gradlew prepareJS build --console plain
 
+# with http proxy
+# ./gradlew -Dhttp.proxyHost=194.145.60.1 -Dhttp.proxyPort=9400 -Dhttps.proxyHost=194.145.60.1 -Dhttps.proxyPort=9400 prepareJS build --console plain
+
 # install xfce
 sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
 sudo apt-get install gnome-icon-theme-full tango-icon-theme
@@ -47,10 +49,12 @@ sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 sudo apt-get install -y chromium-browser
 
 # install IntelliJ IDEA  
-sudo wget -O /opt/ideaIU-2017.2.5-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.2.5-no-jdk.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-2017.2.5-no-jdk.tar.gz
-sudo rm /opt/ideaIU-2017.2.5-no-jdk.tar.gz
+sudo wget -O /opt/ideaIU-2018.1-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2018.1-no-jdk.tar.gz
+cd /opt/ && sudo tar -zxvf ideaIU-2018.1-no-jdk.tar.gz
+sudo rm /opt/ideaIU-2018.1-no-jdk.tar.gz
 sudo chown -R vagrant:vagrant .
+
+startx
 
 SCRIPT
 
@@ -59,10 +63,15 @@ Vagrant.configure(2) do |config|
 
   config.vm.box = "ubuntu/trusty64"
 
+  # config.proxy.http     = "http://194.145.60.1:9400"
+  # config.proxy.https    = "http://194.145.60.1:9400"
+  # config.proxy.no_proxy = "localhost,127.0.0.1"
+
   config.vm.provider "virtualbox" do |vb|
      vb.name = "webapp-tutorial"
      vb.gui = true  
      vb.memory = "4096"
+     vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
   end
   
   config.vm.provision "shell", inline: $script, privileged: false
