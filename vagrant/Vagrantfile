@@ -35,10 +35,10 @@ cd /home/vagrant
 git clone https://github.com/toedter/webapp-tutorial.git
 sudo chown -R vagrant:vagrant .npm
 cd webapp-tutorial
-./gradlew prepareJS build --console plain
 
+./gradlew prepareJS build --console plain
 # with http proxy
-# ./gradlew -Dhttp.proxyHost=194.145.60.1 -Dhttp.proxyPort=9400 -Dhttps.proxyHost=194.145.60.1 -Dhttps.proxyPort=9400 prepareJS build --console plain
+#./gradlew -Dhttp.proxyHost=194.145.60.1 -Dhttp.proxyPort=9400 -Dhttps.proxyHost=194.145.60.1 -Dhttps.proxyPort=9400 prepareJS build --console plain
 
 # install xfce
 sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
@@ -54,14 +54,12 @@ cd /opt/ && sudo tar -zxvf ideaIU-2018.1-no-jdk.tar.gz
 sudo rm /opt/ideaIU-2018.1-no-jdk.tar.gz
 sudo chown -R vagrant:vagrant .
 
-startx
-
 SCRIPT
 
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
   # config.proxy.http     = "http://194.145.60.1:9400"
   # config.proxy.https    = "http://194.145.60.1:9400"
@@ -71,6 +69,7 @@ Vagrant.configure(2) do |config|
      vb.name = "webapp-tutorial"
      vb.gui = true  
      vb.memory = "4096"
+     vb.cpus = 2
      vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
   end
   
