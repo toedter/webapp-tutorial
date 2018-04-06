@@ -59,7 +59,7 @@ SCRIPT
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "ubuntu/xenial64"
+  config.vm.box = "ubuntu/trusty64"
 
   # config.proxy.http     = "http://194.145.60.1:9400"
   # config.proxy.https    = "http://194.145.60.1:9400"
