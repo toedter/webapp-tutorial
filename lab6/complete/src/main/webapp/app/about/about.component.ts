@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {Http} from '@angular/http';
 
 @Component({
   selector: 'about',
@@ -8,6 +7,6 @@ import {Http} from '@angular/http';
 })
 export class AboutComponent {
 
-  constructor(http: Http) {
+  constructor() {
   }
 }

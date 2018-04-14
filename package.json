@@ -61,10 +61,6 @@
     "rxjs": "5.5.8",
     "zone.js": "0.8.24"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/toedter/webapp-tutorial.git"
-  },
   "bugs": {
     "url": "https://github.com/toedter/webapp-tutorial/issues"
   },
