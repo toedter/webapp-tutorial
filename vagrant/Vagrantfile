@@ -18,8 +18,8 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get install -y console-common
 sudo install-keymap de
 
 # set timezone to German timezone
-#echo "Europe/Berlin" | sudo tee /etc/timezone
-#sudo dpkg-reconfigure -f noninteractive tzdata
+echo "Europe/Berlin" | sudo tee /etc/timezone
+sudo dpkg-reconfigure -f noninteractive tzdata
 
 # install node & js tools
 sudo apt-get install -y nodejs
