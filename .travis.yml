@@ -5,8 +5,10 @@ language: java
 jdk:
   - oraclejdk8
 
+install: true
+
 services:
   - docker
 
 script:
-  - ./gradlew preparejs build
+  - ./gradlew build
