@@ -3,23 +3,24 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.1.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.3.RELEASE")
     }
 }
+
 
 plugins {
     id "com.moowork.node" version "1.2.0"
 }
 
 node {
-    version = '8.11.1'
+    version = '8.11.3'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
 }
 
 npm_run_build.inputs.dir new File(projectDir, "src")
-npm_run_build.outputs.dir new File(projectDir, "build/dist")
+npm_run_build.outputs.dir new File(projectDir, "dist")
 
 task prepareJS {}
 prepareJS.dependsOn npm_install
@@ -27,13 +28,14 @@ prepareJS.dependsOn npm_install
 task build {}
 build.dependsOn prepareJS
 
+
 allprojects {
 
     apply plugin: 'idea'
     apply plugin: 'eclipse'
 
     task wrapper(type: Wrapper) {
-        gradleVersion = '4.6'
+        gradleVersion = '4.9'
     }
 
     repositories {

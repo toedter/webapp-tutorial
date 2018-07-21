@@ -2,7 +2,7 @@ apply plugin: 'com.moowork.node'
 
 task clean() {
     doLast {
-        delete "build"
+        delete "dist"
     }
 }
 
@@ -10,7 +10,7 @@ npm_install.enabled = false
 npmInstall.enabled = false
 
 npm_run_build.inputs.dir new File(projectDir, "src")
-npm_run_build.outputs.dir new File(projectDir, "build/dist")
+npm_run_build.outputs.dir new File(projectDir, "dist")
 
 task build {}
 build.dependsOn npm_run_build

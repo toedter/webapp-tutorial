@@ -5,7 +5,7 @@
   "description": "tutorial web client - a tutorial lab",
   "scripts": {
     "build": "tsc",
-    "test": "karma start"
+    "test": "tsc & karma start --browsers ChromeHeadless"
   },
   "author": {
     "name": "Kai Toedter",

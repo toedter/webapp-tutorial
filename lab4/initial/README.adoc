@@ -1,0 +1,8 @@
+MPlay around with the Angulat CLI:
+
+* invoke: node-modules/.bin/ng new webapp-tutorial --skip-install
+* cp -a node_modules webapp-tutorial
+* cd webapp-tutorial
+* invoke: npm run build
+* invoke npm test
+* invoke npm run e2e

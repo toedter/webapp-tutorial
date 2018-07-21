@@ -1,21 +1,15 @@
 {
-  "name": "webapp-tutorial-angular-client",
+  "name": "webapp-tutorial",
   "version": "1.0.0",
-  "description": "The web part of the 'Cool Webapps' Tutorial",
   "scripts": {
-    "build": "webpack --progress",
-    "watch": "npm run build -- --watch",
-    "server": "webpack-dev-server --inline --progress --port 3000 --content-base src/main/webapp",
-    "start": "npm run server"
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
   },
-  "contributors": [
-    "Kai Toedter <kai@toedter.com>"
-  ],
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/toedter/webapp-tutorial.git"
-  },
+  "private": true,
   "dependencies": {},
   "devDependencies": {}
 }

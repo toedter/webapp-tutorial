@@ -1,4 +1,0 @@
-Merge the sources:
-
-* server from lab 2
-* client from lab 5
