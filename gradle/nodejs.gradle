@@ -1,0 +1,23 @@
+apply plugin: 'com.moowork.node'
+
+node {
+    version = '8.11.3'
+    download = true
+    workDir = file("${rootProject.buildDir}/node")
+    nodeModulesDir = file("${project.projectDir}")
+}
+
+task clean() {
+    doLast {
+        delete "dist"
+    }
+}
+
+npm_install.enabled = false
+npmInstall.enabled = false
+
+npm_run_build.inputs.dir new File(projectDir, "src")
+npm_run_build.outputs.dir new File(projectDir, "dist")
+
+task build {}
+build.dependsOn npm_run_build

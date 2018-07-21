@@ -1,15 +1,1 @@
-plugins {
-    id "com.moowork.node"
-}
-
-task(clean) {
-    doLast {
-        delete "dist"
-    }
-}
-
-task(build) {
-}
-
-build.dependsOn npm_run_build
-
+apply from: "$rootDir/gradle/nodejs.gradle"
