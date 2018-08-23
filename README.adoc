@@ -1,6 +1,5 @@
 = WebApp Tutorial
-
-image:https://travis-ci.org/toedter/webapp-tutorial.svg?branch=master[Build Status, link="https://travis-ci.org/toedter/webapp-tutorial"]
+image:https://travis-ci.org/mikewiesner/webapp-tutorial.svg?branch=master["Build Status", link="https://travis-ci.org/mikewiesner/webapp-tutorial"]
 image:http://img.shields.io/badge/license-MIT-blue.svg["MIT", link="http://toedter.mit-license.org"]
 
 This is tutorial material for building web apps with Spring Boot, Spring Data Rest, Anguluar 2 and TypeScript.
