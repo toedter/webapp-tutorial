@@ -10,6 +10,7 @@ sudo sed -i 's,http://security.ubuntu.com/ubuntu,http://ftp.fau.de/ubuntu,' /etc
 sudo add-apt-repository -y ppa:webupd8team/java
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 sudo add-apt-repository ppa:xubuntu-dev/xfce-4.12
+sudo add-apt-repository ppa:git-core/ppa
 sudo apt-get -y update
 
 # switch to German keyboard layout
