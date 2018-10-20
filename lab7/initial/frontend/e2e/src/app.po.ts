@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   getUsersSectionText() {
-    return element(by.css('app-chat-messages h4')).getText();
+    return element(by.css('app-users h4')).getText();
   }
 }
