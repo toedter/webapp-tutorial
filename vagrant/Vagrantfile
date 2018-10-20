@@ -22,7 +22,8 @@ echo "Europe/Berlin" | sudo tee /etc/timezone
 sudo dpkg-reconfigure -f noninteractive tzdata
 
 # install node & js tools
-sudo apt-get install -y nodejs
+curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+sudo apt install nodejs
 
 # install java
 echo debconf shared/accepted-oracle-license-v1-1 select true | sudo debconf-set-selections
@@ -49,9 +50,9 @@ sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 sudo apt-get install -y chromium-browser
 
 # install IntelliJ IDEA  
-sudo wget -O /opt/ideaIU-2018.1-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2018.1-no-jdk.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-2018.1-no-jdk.tar.gz
-sudo rm /opt/ideaIU-2018.1-no-jdk.tar.gz
+sudo wget -O /opt/ideaIU-2018.2.5-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2018.2.5-no-jdk.tar.gz
+cd /opt/ && sudo tar -zxvf ideaIU-2018.2.5-no-jdk.tar.gz
+sudo rm /opt/ideaIU-2018.2.5-no-jdk.tar.gz
 sudo chown -R vagrant:vagrant .
 
 SCRIPT
