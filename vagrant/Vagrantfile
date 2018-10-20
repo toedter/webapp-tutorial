@@ -37,7 +37,10 @@ git clone https://github.com/toedter/webapp-tutorial.git
 sudo chown -R vagrant:vagrant .npm
 cd webapp-tutorial
 
-./gradlew prepareJS build --console plain
+# uncomment if you want to have a prepared gradle build on terminal level
+#./gradlew prepareJS build --console plain
+npm install
+
 # with http proxy
 #./gradlew -Dhttp.proxyHost=194.145.60.1 -Dhttp.proxyPort=9400 -Dhttps.proxyHost=194.145.60.1 -Dhttps.proxyPort=9400 prepareJS build --console plain
 
@@ -48,6 +51,8 @@ sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 
 # install chrome
 sudo apt-get install -y chromium-browser
+sudo -i
+echo "export CHROME_BIN=/usr/bin/chromium-browser" >> /etc/profile.d/chromiumenv.sh
 
 # install IntelliJ IDEA  
 sudo wget -O /opt/ideaIU-2018.2.5-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2018.2.5-no-jdk.tar.gz
