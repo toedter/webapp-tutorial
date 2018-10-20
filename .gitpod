@@ -1,5 +1,6 @@
 tasks:
   - command: "npm install"
+  - command: "export CHROME_BIN=/usr/bin/chromium-browser"
 
 ports:
   - port: 8080
