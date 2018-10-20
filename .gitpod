@@ -1,0 +1,8 @@
+tasks:
+  - command: "npm install"
+
+ports:
+  - port: 8080
+    protocol: "http"
+  - port: 4280
+    protocol: "http"
