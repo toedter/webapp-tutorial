@@ -4,5 +4,5 @@ tasks:
 ports:
   - port: 8080
     protocol: "http"
-  - port: 4280
+  - port: 4200
     protocol: "http"
