@@ -1,4 +1,4 @@
-MPlay around with the Angulat CLI:
+== Play around with the Angulat CLI:
 
 * invoke: node-modules/.bin/ng new webapp-tutorial --skip-install
 * cp -a node_modules webapp-tutorial
