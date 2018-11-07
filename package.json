@@ -4,7 +4,7 @@
   "description": "The web part of the 'Cool Webapps' Tutorial",
   "scripts": {
     "build": "echo npm: nothing to build on top level",
-    "postinstall": "link-parent-bin --child-directory-root lab3 && link-parent-bin --child-directory-root lab4 && link-parent-bin --child-directory-root lab5 && link-parent-bin --child-directory-root lab6 && link-parent-bin --child-directory-root lab7/initial/frontend && link-parent-bin --child-directory-root lab7/complete/frontend"
+    "postinstall": "link-parent-bin --child-directory-root lab3 && link-parent-bin --child-directory-root lab4 && link-parent-bin --child-directory-root lab5 && link-parent-bin --child-directory-root lab6 && link-parent-bin --child-directory-root lab7/initial && link-parent-bin --child-directory-root lab7/complete"
   },
   "contributors": [
     "Kai Toedter <kai@toedter.com>"
