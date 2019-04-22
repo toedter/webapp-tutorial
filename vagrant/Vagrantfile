@@ -23,7 +23,7 @@ echo "Europe/Berlin" | sudo tee /etc/timezone
 sudo dpkg-reconfigure -f noninteractive tzdata
 
 # install node & js tools
-curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
 sudo apt install nodejs
 
 # install java
@@ -55,10 +55,10 @@ sudo apt-get install -y chromium-browser
 sudo -i
 echo "export CHROME_BIN=/usr/bin/chromium-browser" >> /etc/profile.d/chromiumenv.sh
 
-# install IntelliJ IDEA  
-sudo wget -O /opt/ideaIU-2018.2.5-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2018.2.5-no-jdk.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-2018.2.5-no-jdk.tar.gz
-sudo rm /opt/ideaIU-2018.2.5-no-jdk.tar.gz
+# install IntelliJ IDEA
+sudo wget -O /opt/ideaIU-2019.1.1-no-jdk.tar.gz https://download.jetbrains.com/idea/ideaIU-2019.1.1-no-jdk.tar.gz
+cd /opt/ && sudo tar -zxvf ideaIU-2019.1.1-no-jdk.tar.gz
+sudo rm /opt/ideaIU-2019.1.1-no-jdk.tar.gz
 sudo chown -R vagrant:vagrant .
 
 SCRIPT
@@ -74,11 +74,11 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |vb|
      vb.name = "webapp-tutorial"
-     vb.gui = true  
+     vb.gui = true
      vb.memory = "4096"
      vb.cpus = 2
      vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
   end
-  
+
   config.vm.provision "shell", inline: $script, privileged: false
 end
