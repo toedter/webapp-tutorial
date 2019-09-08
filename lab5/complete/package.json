@@ -4,7 +4,8 @@
   "description": "The web part of the 'Cool Webapps' Tutorial",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
+    "gitpod-start": "ng serve --proxy-config proxy.conf.json --host 0.0.0.0 --disable-host-check",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",

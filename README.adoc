@@ -20,7 +20,7 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 
 == Requirements
 
-* Java 8 (JDK) installed
+* Java 8 or 11 (JDK) installed
 
 You don't need to install Node.js and all the JavaScript tooling,
 since those tools are installed automatically by the Gradle build.
