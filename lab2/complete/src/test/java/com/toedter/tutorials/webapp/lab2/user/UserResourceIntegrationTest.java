@@ -7,9 +7,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.hateoas.Link;
-import org.springframework.hateoas.LinkDiscoverer;
-import org.springframework.hateoas.LinkDiscoverers;
 import org.springframework.hateoas.MediaTypes;
+import org.springframework.hateoas.client.LinkDiscoverer;
+import org.springframework.hateoas.client.LinkDiscoverers;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -45,13 +45,13 @@ public class UserResourceIntegrationTest {
         MockHttpServletResponse response2 = mvc.perform(get("/")).
                 andDo(MockMvcResultHandlers.print()).
                 andExpect(status().isOk()).
-                andExpect(content().contentType("application/hal+json;charset=UTF-8")).
+                andExpect(content().contentType("application/hal+json")).
                 andExpect(jsonPath("_links.users.href", CoreMatchers.notNullValue())).
                 andReturn().
                 getResponse();
 
-        LinkDiscoverer discoverer = links.getLinkDiscovererFor(response2.getContentType());
-        Link link = discoverer.findLinkWithRel("users", response2.getContentAsString());
+        LinkDiscoverer discoverer = links.getLinkDiscovererFor(response2.getContentType()).get();
+        Link link = discoverer.findLinkWithRel("users", response2.getContentAsString()).get();
         String href = link.getHref();
         String hrefWithoutTemplateParameters = href.substring(0, href.indexOf("{"));
 
