@@ -1,6 +1,4 @@
-plugins {
-    id "com.github.node-gradle.node" version "2.2.2"
-}
+apply plugin: 'com.github.node-gradle.node'
 
 node {
     version = '12.16.1'
