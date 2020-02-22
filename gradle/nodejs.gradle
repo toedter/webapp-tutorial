@@ -1,7 +1,7 @@
 apply plugin: 'com.moowork.node'
 
 node {
-    version = '10.16.3'
+    version = '12.16.1'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
