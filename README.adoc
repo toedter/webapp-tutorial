@@ -8,7 +8,7 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 
 == Used Technologies
 
-* http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Java 8] for the REST services
+* https://adoptopenjdk.net/[Java (8 or 11)] for the REST services
 * https://www.typescriptlang.org/[Typescript] for the web client
 * http://stateless.co/hal_specification.html[HAL] (Hypertext Application Language) fpr hypermedia
 * http://projects.spring.io/spring-boot/[Spring Boot] (+ Data, REST, HATEOAS)
@@ -24,7 +24,7 @@ This is tutorial material for building web apps with Spring Boot, Spring Data Re
 
 You don't need to install Node.js and all the JavaScript tooling,
 since those tools are installed automatically by the Gradle build.
-But it would be convenient to have those tools installed
+It would be convenient to have those tools installed
 if you want to use them directly instead of using the Gradle wrapper tasks.
 
 * Optional
@@ -36,6 +36,10 @@ When you want to run the tutorial locally, prepare all the labs:
 
 * ./gradlew clean build _(builds all the tutorial labs (Java parts + JavaScript parts), runs all the Java tests)_
 
+== Slides
+
+You find the corresponding tutorial slides at
+https://speakerdeck.com/toedter/modern-web-apps-with-spring-boot-angular-and-typescript[SpeakerDeck].
 
 == Creating a tutorial VM with Vagrant
 
