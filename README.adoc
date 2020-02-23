@@ -4,19 +4,23 @@ image:https://travis-ci.org/toedter/webapp-tutorial.svg?branch=master[Build Stat
 image:http://img.shields.io/badge/license-MIT-blue.svg["MIT", link="http://toedter.mit-license.org"]
 image:http://img.shields.io/badge/Gitpod-code%20now-blue.svg?longCache=true["Start Workspace", link="https://gitpod.io#https://github.com/toedter/webapp-tutorial"]
 
-This is tutorial material for building web apps with Spring Boot, Spring Data Rest, Angular 2 and TypeScript.
+This is tutorial material for building modern web apps with Spring Boot, Spring Data Rest, Angular and TypeScript.
+You find the corresponding tutorial slides at
+https://speakerdeck.com/toedter/modern-web-apps-with-spring-boot-angular-and-typescript[SpeakerDeck].
+
+image:webapp-tutorial.png[Screenshot]
 
 == Used Technologies
 
 * https://adoptopenjdk.net/[Java (8 or 11)] for the REST services
 * https://www.typescriptlang.org/[Typescript] for the web client
 * http://stateless.co/hal_specification.html[HAL] (Hypertext Application Language) fpr hypermedia
-* http://projects.spring.io/spring-boot/[Spring Boot] (+ Data, REST, HATEOAS)
-* http://angular.io/[Angular] for web client
-* http://junit.org/[JUnit] for Java unit and integration testing
+* https://spring.io/projects/spring-boot[Spring Boot] (+ Data, REST, HATEOAS)
+* https://angular.io/[Angular] for web client
+* https://junit.org/[JUnit] for Java unit and integration testing
 * https://code.google.com/p/mockito/[Mockito] for Mocking
-* http://www.gradle.org/[Gradle] as build system
-* Node.js, npm, webpack for the web client build
+* https://www.gradle.org/[Gradle] as master build system
+* https://nodejs.org[Node.js] & https://www.npmjs.com/[npm] for the web client build
 
 == Requirements
 
@@ -27,19 +31,13 @@ since those tools are installed automatically by the Gradle build.
 It would be convenient to have those tools installed
 if you want to use them directly instead of using the Gradle wrapper tasks.
 
-* Optional
-** Node.js and npm installed
+* Optional: Node.js and npm installed
 
 == Getting Started
 
 When you want to run the tutorial locally, prepare all the labs:
 
 * ./gradlew clean build _(builds all the tutorial labs (Java parts + JavaScript parts), runs all the Java tests)_
-
-== Slides
-
-You find the corresponding tutorial slides at
-https://speakerdeck.com/toedter/modern-web-apps-with-spring-boot-angular-and-typescript[SpeakerDeck].
 
 == Creating a tutorial VM with Vagrant
 
