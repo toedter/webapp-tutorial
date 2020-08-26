@@ -55,9 +55,9 @@ sudo -i
 echo "export CHROME_BIN=/usr/bin/chromium-browser" >> /etc/profile.d/chromiumenv.sh
 
 # install IntelliJ IDEA
-sudo wget -O /opt/ideaIU-2019.2.3.tar.gz https://download.jetbrains.com/idea/ideaIU-2019.2.3.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-2019.2.3.tar.gz
-sudo rm /opt/ideaIU-2019.2.3.tar.gz
+sudo wget -O /opt/ideaIU-2020.2.1.tar.gz https://download.jetbrains.com/idea/ideaIU-2020.2.1.tar.gz
+cd /opt/ && sudo tar -zxvf ideaIU-2020.2.1.tar.gz
+sudo rm /opt/ideaIU-2020.2.1.tar.gz
 sudo chown -R vagrant:vagrant .
 
 SCRIPT
