@@ -1,9 +1,8 @@
 package com.toedter.tutorials.webapp.lab7.user;
 
 import org.hamcrest.CoreMatchers;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.hateoas.Link;
@@ -11,7 +10,6 @@ import org.springframework.hateoas.MediaTypes;
 import org.springframework.hateoas.client.LinkDiscoverer;
 import org.springframework.hateoas.client.LinkDiscoverers;
 import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -21,7 +19,6 @@ import org.springframework.web.filter.ShallowEtagHeaderFilter;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserResourceIntegrationTest {
 
@@ -33,7 +30,7 @@ public class UserResourceIntegrationTest {
 
     protected MockMvc mvc;
 
-    @Before
+    @BeforeEach
     public void before() throws Exception {
         mvc = MockMvcBuilders.webAppContextSetup(context).
                 addFilter(new ShallowEtagHeaderFilter()).
