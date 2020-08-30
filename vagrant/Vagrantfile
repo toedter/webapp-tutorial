@@ -2,69 +2,63 @@
 
 $script = <<SCRIPT
 
-# switch Ubuntu download mirror to German server
-sudo sed -i 's,http://us.archive.ubuntu.com/ubuntu/,http://ftp.fau.de/ubuntu/,' /etc/apt/sources.list
-sudo sed -i 's,http://security.ubuntu.com/ubuntu,http://ftp.fau.de/ubuntu,' /etc/apt/sources.list
+set -ex
 
-# add repos and update
-sudo add-apt-repository -y ppa:webupd8team/java
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo add-apt-repository ppa:xubuntu-dev/xfce-4.12
-sudo add-apt-repository ppa:git-core/ppa
-sudo add-apt-repository --yes ppa:rpardini/adoptopenjdk
-sudo apt-get -y update
+# Set password for default "ubuntu" user
+echo "ubuntu:ubuntu" | sudo chpasswd
 
-# switch to German keyboard layout
+# https://askubuntu.com/questions/1067929/on-18-04-package-virtualbox-guest-utils-does-not-exist
+sudo apt-add-repository multiverse
+sudo apt-get update
+
+# Install xfce and virtualbox additions.
+# (Not sure if these packages could be helpful as well: virtualbox-guest-utils-hwe virtualbox-guest-x11-hwe)
+sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
+# Permit anyone to start the GUI
+# TODO - needed?
+#sudo sed -i 's/allowed_users=.*$/allowed_users=anybody/' /etc/X11/Xwrapper.config
+
+# Optional: Use LightDM login screen (-> not required to run "startx")
+sudo apt-get install -y lightdm lightdm-gtk-greeter
+# Optional: Install a more feature-rich applications menu
+sudo apt-get install -y xfce4-whiskermenu-plugin
+
+# Switch to German keyboard layout
 sudo sed -i 's/"us"/"de"/g' /etc/default/keyboard
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y console-common
 sudo install-keymap de
 
-# set timezone to German timezone
+# Set timezone to German timezone
 echo "Europe/Berlin" | sudo tee /etc/timezone
 sudo dpkg-reconfigure -f noninteractive tzdata
 
-# install node & js tools
-curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
-sudo apt install nodejs
+# Install node & js tools
+curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+sudo apt-get install -y nodejs
 
-# uncomment to install java, we use the Java that comes with IntelliJ IDEA
-# sudo apt-get -y install adoptopenjdk-11-installer
-
-# install git and clone webapp-tutorial
-sudo apt-get install -y git
+# clone the tutorial
 cd /home/vagrant
+
 git clone https://github.com/toedter/webapp-tutorial.git
-sudo chown -R vagrant:vagrant .npm
+sudo chown -R vagrant:vagrant /home/vagrant
 cd webapp-tutorial
 
 # uncomment if you want to have a prepared gradle build on terminal level
 #./gradlew prepareJS build --console plain
 npm install
 
-# with http proxy
-#./gradlew -Dhttp.proxyHost=194.145.60.1 -Dhttp.proxyPort=9400 -Dhttps.proxyHost=194.145.60.1 -Dhttps.proxyPort=9400 prepareJS build --console plain
-
-# install xfce
-sudo apt-get install -y xfce4 virtualbox-guest-dkms virtualbox-guest-utils virtualbox-guest-x11
-sudo apt-get install gnome-icon-theme-full tango-icon-theme
-sudo echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
-
-# install chrome
+# install chromium
 sudo apt-get install -y chromium-browser
-sudo -i
-echo "export CHROME_BIN=/usr/bin/chromium-browser" >> /etc/profile.d/chromiumenv.sh
+# echo "export CHROME_BIN=/usr/bin/chromium-browser" >> /etc/profile.d/chromiumenv.sh
 
-# install IntelliJ IDEA
-sudo wget -O /opt/ideaIU-2020.2.1.tar.gz https://download.jetbrains.com/idea/ideaIU-2020.2.1.tar.gz
-cd /opt/ && sudo tar -zxvf ideaIU-2020.2.1.tar.gz
-sudo rm /opt/ideaIU-2020.2.1.tar.gz
-sudo chown -R vagrant:vagrant .
+#install IntelliJ Idea Ultimate
+sudo snap install intellij-idea-ultimate --classic --edge
 
 SCRIPT
 
 Vagrant.configure(2) do |config|
 
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/bionic64"
 
   # config.proxy.http     = "http://194.145.60.1:9400"
   # config.proxy.https    = "http://194.145.60.1:9400"
@@ -75,7 +69,9 @@ Vagrant.configure(2) do |config|
      vb.gui = true
      vb.memory = "4096"
      vb.cpus = 2
+     vb.customize ['modifyvm', :id, '--accelerate3d', 'on']
      vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
+     vb.customize ['modifyvm', :id, '--draganddrop', 'bidirectional']
   end
 
   config.vm.provision "shell", inline: $script, privileged: false
