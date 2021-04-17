@@ -33,7 +33,7 @@ echo "Europe/Berlin" | sudo tee /etc/timezone
 sudo dpkg-reconfigure -f noninteractive tzdata
 
 # Install node & js tools
-curl -sL https://deb.nodesource.com/setup_12.x | sudo bash -
+curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
 sudo apt-get install -y nodejs
 
 # clone the tutorial
@@ -52,7 +52,7 @@ sudo apt-get install -y chromium-browser
 # echo "export CHROME_BIN=/usr/bin/chromium-browser" >> /etc/profile.d/chromiumenv.sh
 
 #install IntelliJ Idea Ultimate
-sudo snap install intellij-idea-ultimate --classic --edge
+sudo snap install intellij-idea-ultimate --classic
 
 SCRIPT
 

@@ -5,8 +5,6 @@ apply plugin: 'io.freefair.lombok'
 
 repositories {
     mavenCentral()
-    maven { url "http://repo.spring.io/snapshot" }
-    maven { url "http://repo.spring.io/milestone" }
 }
 
 task copyWebApp(type: Copy) {
@@ -32,11 +30,13 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-data-rest"
     implementation "org.webjars:hal-explorer:0.9.4"
     implementation "com.jayway.jsonpath:json-path"
+    implementation 'org.hsqldb:hsqldb:2.6.0'
 
-    runtime 'org.hsqldb:hsqldb:2.3.3'
-
-    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-    }
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
+
+test {
+    useJUnitPlatform()
+}
+
 
