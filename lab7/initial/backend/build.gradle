@@ -30,7 +30,8 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-data-rest"
     implementation "org.webjars:hal-explorer:0.9.4"
     implementation "com.jayway.jsonpath:json-path"
-    implementation 'org.hsqldb:hsqldb:2.6.0'
+
+    runtimeOnly 'org.hsqldb:hsqldb:2.6.0'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
