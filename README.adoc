@@ -1,6 +1,6 @@
 = WebApp Tutorial
 
-image:https://travis-ci.org/toedter/webapp-tutorial.svg?branch=master[Build Status, link="https://travis-ci.org/toedter/webapp-tutorial"]
+image:https://github.com/toedter/webapp-tutorial/workflows/Build/badge.svg["build", link="https://github.com/toedter/webapp-tutorial/actions"]
 image:http://img.shields.io/badge/license-MIT-blue.svg["MIT", link="http://toedter.mit-license.org"]
 image:http://img.shields.io/badge/Gitpod-code%20now-blue.svg?longCache=true["Start Workspace", link="https://gitpod.io#https://github.com/toedter/webapp-tutorial"]
 
@@ -14,7 +14,7 @@ image:webapp-tutorial.png[Screenshot]
 
 * https://adoptopenjdk.net/[Java (8 or 11)] for the REST services
 * https://www.typescriptlang.org/[Typescript] for the web client
-* http://stateless.co/hal_specification.html[HAL] (Hypertext Application Language) fpr hypermedia
+* http://stateless.co/hal_specification.html[HAL] (Hypertext Application Language) for hypermedia
 * https://spring.io/projects/spring-boot[Spring Boot] (+ Data, REST, HATEOAS)
 * https://angular.io/[Angular] for web client
 * https://junit.org/[JUnit] for Java unit and integration testing
