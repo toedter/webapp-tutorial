@@ -19,8 +19,6 @@
     "type": "git",
     "url": "git+https://github.com/toedter/webapp-tutorial.git"
   },
-  "dependencies": {
-  },
-  "devDependencies": {
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }
