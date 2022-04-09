@@ -20,7 +20,40 @@
     "url": "git+https://github.com/toedter/webapp-tutorial.git"
   },
   "dependencies": {
+    "@angular/animations": "~12.2.11",
+    "@angular/common": "~12.2.11",
+    "@angular/compiler": "~12.2.11",
+    "@angular/core": "~12.2.11",
+    "@angular/forms": "~12.2.11",
+    "@angular/platform-browser": "~12.2.11",
+    "@angular/platform-browser-dynamic": "~12.2.11",
+    "@angular/router": "~12.2.11",
+    "core-js": "^3.18.3",
+    "rxjs": "~6.6.7",
+    "tslib": "^2.3.1",
+    "zone.js": "~0.11.4",
+    "bootstrap": "^5.1.3"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~12.2.11",
+    "@angular/cli": "~12.2.11",
+    "@angular/compiler-cli": "~12.2.11",
+    "@angular/language-service": "~12.2.11",
+    "@types/node": "^16.11.4",
+    "@types/jasmine": "~3.10.1",
+    "@types/jasminewd2": "~2.0.10",
+    "codelyzer": "^6.0.2",
+    "jasmine-core": "~3.10.1",
+    "jasmine-spec-reporter": "~7.0.0",
+    "karma": "~6.3.5",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage-istanbul-reporter": "~3.0.3",
+    "karma-jasmine": "~4.0.1",
+    "karma-jasmine-html-reporter": "^1.7.0",
+    "protractor": "~7.0.0",
+    "ts-node": "~10.4.0",
+    "tslint": "~6.1.3",
+    "typescript": "~4.3.5",
+    "link-parent-bin": "^2.0.0"
   }
 }
