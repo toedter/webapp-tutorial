@@ -1,7 +1,7 @@
 apply plugin: 'com.github.node-gradle.node'
 
 node {
-    version = '14.18.1'
+    version = '16.14.2'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
