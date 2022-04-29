@@ -11,4 +11,4 @@ ports:
   - port: 4200
     onOpen: open-preview
   - port: 8080
-    onOpen: open-preview
+    onOpen: ignore
