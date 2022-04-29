@@ -1,6 +1,7 @@
 vscode:
   extensions:
     - GabrielBB.vscode-lombok
+    - redhat.java
 
 tasks:
   - init: export CHROME_BIN=/usr/bin/chromium-browser
