@@ -1,0 +1,13 @@
+vscode:
+  extensions:
+    - GabrielBB.vscode-lombok
+
+tasks:
+  - init: export CHROME_BIN=/usr/bin/chromium-browser
+    command: npm install
+
+ports:
+  - port: 4200
+    onOpen: open-preview
+  - port: 8080
+    onOpen: open-preview

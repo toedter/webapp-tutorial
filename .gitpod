@@ -1,8 +1,0 @@
-tasks:
-  - command: "npm install && export CHROME_BIN=/usr/bin/chromium-browser"
-
-ports:
-  - port: 8080
-    protocol: "http"
-  - port: 4200
-    protocol: "http"
