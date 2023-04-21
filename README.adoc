@@ -12,7 +12,7 @@ image:webapp-tutorial.png[Screenshot]
 
 == Used Technologies
 
-* https://adoptopenjdk.net/[Java (8 or 11)] for the REST services
+* https://adoptopenjdk.net/[Java (17 or later)] for the REST services
 * https://www.typescriptlang.org/[Typescript] for the web client
 * http://stateless.co/hal_specification.html[HAL] (Hypertext Application Language) for hypermedia
 * https://spring.io/projects/spring-boot[Spring Boot] (+ Data, REST, HATEOAS)
@@ -24,7 +24,7 @@ image:webapp-tutorial.png[Screenshot]
 
 == Requirements
 
-* Java 8 or 11 (JDK) installed
+* Java 17 (JDK) or later installed
 
 You don't need to install Node.js and all the JavaScript tooling,
 since those tools are installed automatically by the Gradle build.
@@ -37,7 +37,10 @@ if you want to use them directly instead of using the Gradle wrapper tasks.
 
 When you want to run the tutorial locally, prepare all the labs:
 
-* ./gradlew clean build _(builds all the tutorial labs (Java parts + JavaScript parts), runs all the Java tests)_
+* ./gradlew build (Linux/Mac)
+* gradlew build (Windows)
+
+This builds all the tutorial labs (Java parts + JavaScript parts), runs all the Java tests).
 
 == License
 
