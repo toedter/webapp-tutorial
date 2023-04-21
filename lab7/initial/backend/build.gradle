@@ -17,7 +17,12 @@ task copyWebApp(type: Copy) {
 }
 
 copyWebApp.dependsOn ':lab7:complete:frontend:build'
+
+jar.dependsOn copyWebApp
+resolveMainClassName.dependsOn copyWebApp
+compileTestJava.dependsOn copyWebApp
 build.dependsOn copyWebApp
+
 
 bootJar {
     archivesBaseName = 'webapp-tutorial'
