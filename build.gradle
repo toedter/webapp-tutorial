@@ -6,7 +6,7 @@ plugins {
 }
 
 node {
-    version = '16.17.0'
+    version = '18.16.0'
     download = true
     workDir = file("${rootProject.buildDir}/node")
     nodeModulesDir = file("${project.projectDir}")
