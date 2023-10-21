@@ -1,15 +1,15 @@
 plugins {
-    id 'org.springframework.boot' version '3.0.6'
-    id "com.github.node-gradle.node" version "3.5.1"
-    id 'io.spring.dependency-management' version '1.1.0'
-    id 'io.freefair.lombok' version '8.0.1'
+    id 'org.springframework.boot' version '3.1.5'
+    id "com.github.node-gradle.node" version "7.0.1"
+    id 'io.spring.dependency-management' version '1.1.3'
+    id 'io.freefair.lombok' version '8.4'
 }
 
 node {
-    version = '18.16.0'
+    version = '18.18.2'
     download = true
     workDir = file("${rootProject.buildDir}/node")
-    nodeModulesDir = file("${project.projectDir}")
+    nodeProjectDir = file("${project.projectDir}")
 }
 
 npm_run_build.inputs.dir new File(projectDir, "src")
